@@ -21,9 +21,178 @@
         android:layout_height="match_parent"
         android:id="@+id/map"
         android:fillViewport="false"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/loadProg">
 
     </HorizontalScrollView>
+
+    <SlidingDrawer
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:content="@+id/menuLayout"
+        android:handle="@+id/handle"
+        android:id="@+id/menuSlide">
+
+        <RelativeLayout
+            android:id="@+id/menuLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:background="#a2112a49">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Missions"
+                android:id="@+id/btn1"
+                android:singleLine="false"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="46dp"
+                android:background="#ff2440a4" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mini"
+                android:id="@+id/btn2"
+                android:background="#ff23339a"
+                android:layout_below="@+id/btn1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="5dp"
+                android:onClick="two"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Items"
+                android:id="@+id/btn3"
+                android:background="#ff23339a"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/btn2"
+                android:layout_marginTop="5dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Credits"
+                android:id="@+id/btn4"
+                android:background="#ff23339a"
+                android:layout_below="@+id/btn3"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="5dp"
+                android:onClick="four"/>
+
+            <ViewFlipper
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/flip"
+                android:layout_alignParentTop="true"
+                android:background="#cf830927"
+                android:layout_toRightOf="@+id/btn1"
+                style="@style/Animation.AppCompat.DropDownUp"
+                android:animateFirstView="false"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/fliplay1">
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/imageView"
+                        android:background="#ffffe524" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/fliplay2"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true">
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/img2"
+                        android:background="#ff519830"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start Slashy"
+                        android:id="@+id/btnSlashy"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="61dp"
+                        android:background="#ff20ff45"
+                        android:onClick="startSlashy"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start Shroom"
+                        android:id="@+id/btnShroom"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="#fff5ff81"
+                        android:onClick="startShroom"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/fliplay3"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true">
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/img3"
+                        android:background="#ffff23a6" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/fliplay4"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true">
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/img4"
+                        android:background="#ff30fffb" />
+                </RelativeLayout>
+
+            </ViewFlipper>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/handle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/arrow_up_float"
+
+            />
+    </SlidingDrawer>
 
 </RelativeLayout>
