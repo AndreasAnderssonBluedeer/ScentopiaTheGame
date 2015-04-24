@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Menu;
@@ -34,6 +35,8 @@ public class ShroomActivity extends Activity {
 
 
         controller=new GameController(this,this);   //Finns nog bättre lösning på detta.
+        MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.shroomsong);
+        mp.start();
         startGame();
 
     }

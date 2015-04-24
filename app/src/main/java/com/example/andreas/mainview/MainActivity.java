@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Bundle;
 import android.view.Menu;
@@ -76,7 +77,8 @@ public class MainActivity extends Activity {
         fliplay2=(RelativeLayout)findViewById(R.id.fliplay2);
         fliplay3=(RelativeLayout)findViewById(R.id.fliplay3);
         fliplay4=(RelativeLayout)findViewById(R.id.fliplay4);
-
+        MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.loadingsound);
+        mp.start();
 
         loading();      //Loading/StartScreen
 
