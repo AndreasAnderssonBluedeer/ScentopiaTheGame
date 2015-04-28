@@ -31,17 +31,20 @@ public class MainActivity extends Activity {
     private Context context =this;
     private SlidingDrawer menuSlide;
 
+    private   Intent intent;
+
     private ViewFlipper flip;
 
-    private RelativeLayout fliplay1;
-    private RelativeLayout fliplay2;
+    private RelativeLayout mgLay;
+    private RelativeLayout missLay;
     private RelativeLayout fliplay3;
     private RelativeLayout fliplay4;
 
-    private Button btn4;
-    private Button btn3;
-    private Button btn2;
-    private Button btn1;
+    private Button btnCred;
+    private Button btnItem;
+    private Button btnMG;
+    private Button btnMiss;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,21 +65,16 @@ public class MainActivity extends Activity {
         map.setVisibility(View.INVISIBLE);
         map.setEnabled(Boolean.FALSE);
 
-        btn4=(Button)findViewById(R.id.btn4);
+        mgLay=(RelativeLayout)findViewById(R.id.minigameLayout);
+        missLay=(RelativeLayout)findViewById(R.id.missionLayout);
 
-        btn3 =(Button)findViewById(R.id.btn3);
-        btn3.setOnClickListener(new ButtonThree());
 
-        btn2=(Button)findViewById(R.id.btn2);
+        btnMG=(Button)findViewById(R.id.btnGame);
+        btnMiss=(Button)findViewById(R.id.btnMission);
+        btnItem=(Button)findViewById(R.id.btnItem);
+        btnCred=(Button)findViewById(R.id.btnCred);
 
-        btn1 =(Button)findViewById(R.id.btn1);
-        btn1.setOnClickListener(new ButtonOne());
-        btn1.setBackgroundColor(Color.MAGENTA);
 
-        fliplay1=(RelativeLayout)findViewById(R.id.fliplay1);
-        fliplay2=(RelativeLayout)findViewById(R.id.fliplay2);
-        fliplay3=(RelativeLayout)findViewById(R.id.fliplay3);
-        fliplay4=(RelativeLayout)findViewById(R.id.fliplay4);
         MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.loadingsound);
         mp.start();
 
@@ -140,31 +138,48 @@ public class MainActivity extends Activity {
             }
         }.start();
     }
+    public void markMission(View lay){
+        lay.setBackgroundColor(Color.parseColor("#b5aaaaaa"));
+    }
     public void resetButtoncolor(){
-        btn1.setBackgroundColor(Color.parseColor("#ff23339a"));
-        btn2.setBackgroundColor(Color.parseColor("#ff23339a"));
-        btn3.setBackgroundColor(Color.parseColor("#ff23339a"));
-        btn4.setBackgroundColor(Color.parseColor("#ff23339a"));
+        btnMiss.setBackgroundColor(Color.parseColor("#8c213e42"));
+        btnMG.setBackgroundColor(Color.parseColor("#8c213e42"));
+        btnItem.setBackgroundColor(Color.parseColor("#8c213e42"));
+        btnCred.setBackgroundColor(Color.parseColor("#8c213e42"));
 
     }
-    public void two(View button){
+    public void missions(View button){
         resetButtoncolor();
-        button.setBackgroundColor(Color.MAGENTA);
-        flip.setDisplayedChild(flip.indexOfChild(fliplay2));
+        button.setBackgroundColor(Color.parseColor("#9e330e80"));
+        flip.setDisplayedChild(flip.indexOfChild(missLay));
     }
-    public void four(View button){
+    public void minigame(View button){
         resetButtoncolor();
-        button.setBackgroundColor(Color.MAGENTA);
-        flip.setDisplayedChild(flip.indexOfChild(fliplay4));
+        button.setBackgroundColor(Color.parseColor("#9e330e80"));
+        flip.setDisplayedChild(flip.indexOfChild(mgLay));
     }
-    public void startSlashy(View button){
-         Intent intent = new Intent(context, SlashyActivity.class);
-
-          startActivity(intent);
+    public void items(View button){
+        resetButtoncolor();
+        button.setBackgroundColor(Color.parseColor("#9e330e80"));
+        //FLIP
     }
-    public void startShroom(View button){
-        Intent intent = new Intent(context, ShroomActivity.class);
+    public void credits(View button){
+        resetButtoncolor();
+        button.setBackgroundColor(Color.parseColor("#9e330e80"));
+      //  flip.setDisplayedChild(flip.indexOfChild(credLay));
+    }
 
+    public void startSlashy(View layout){
+         intent = new Intent(context, SlashyActivity.class);
+        layout.setBackgroundColor(Color.parseColor("#b5aaaaaa"));
+    }
+    public void startShroom(View layout){
+        intent = new Intent(context, ShroomActivity.class);
+
+      //  layout.setBackgroundColor(Color.parseColor("#00000000"));
+        layout.setBackgroundColor(Color.parseColor("#b5aaaaaa"));
+    }
+    public void startMinigame(View button){
         startActivity(intent);
     }
 
@@ -174,26 +189,5 @@ public class MainActivity extends Activity {
 
 
 
-    private class ButtonThree implements View.OnClickListener{
 
-        @Override
-        public void onClick(View v) {
-            resetButtoncolor();
-            v.setBackgroundColor(Color.MAGENTA);
-            flip.setDisplayedChild(flip.indexOfChild(fliplay3));
-
-
-        }
-    }
-    private class ButtonOne implements View.OnClickListener{
-
-        @Override
-        public void onClick(View v) {
-            resetButtoncolor();
-            v.setBackgroundColor(Color.MAGENTA);
-            flip.setDisplayedChild(flip.indexOfChild(fliplay1));
-
-
-        }
-    }
 }

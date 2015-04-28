@@ -37,153 +37,579 @@
             android:id="@+id/menuLayout"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:orientation="horizontal"
-            android:background="#a2112a49">
+            android:orientation="horizontal">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Missions"
-                android:id="@+id/btn1"
-                android:singleLine="false"
-                android:layout_alignParentTop="true"
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="46dp"
-                android:background="#ff2440a4" />
+                android:background="#c49c9546"
+                android:layout_below="@+id/textView"
+                android:id="@+id/relativeLayout"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mini"
-                android:id="@+id/btn2"
-                android:background="#ff23339a"
-                android:layout_below="@+id/btn1"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="5dp"
-                android:onClick="two"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Items"
-                android:id="@+id/btn3"
-                android:background="#ff23339a"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/btn2"
-                android:layout_marginTop="5dp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Credits"
-                android:id="@+id/btn4"
-                android:background="#ff23339a"
-                android:layout_below="@+id/btn3"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="5dp"
-                android:onClick="four"/>
-
-            <ViewFlipper
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/flip"
-                android:layout_alignParentTop="true"
-                android:background="#cf830927"
-                android:layout_toRightOf="@+id/btn1"
-                style="@style/Animation.AppCompat.DropDownUp"
-                android:animateFirstView="false"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp">
-
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/fliplay1">
-
-                    <ImageView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/imageView"
-                        android:background="#ffffe524" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/fliplay2"
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:text="Missions"
+                    android:id="@+id/btnMission"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true">
+                    android:layout_alignParentStart="true"
+                    android:background="#8c213e42"
 
-                    <ImageView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/img2"
-                        android:background="#ff519830"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true" />
+                    android:onClick="missions"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Start Slashy"
-                        android:id="@+id/btnSlashy"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="61dp"
-                        android:background="#ff20ff45"
-                        android:onClick="startSlashy"/>
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Start Shroom"
-                        android:id="@+id/btnShroom"
-                        android:layout_centerVertical="true"
-                        android:layout_centerHorizontal="true"
-                        android:background="#fff5ff81"
-                        android:onClick="startShroom"/>
-                </RelativeLayout>
+                    android:clickable="true" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:text="minigames"
+                    android:id="@+id/btnGame"
+                    android:background="#9e330e80"
+                    android:layout_below="@+id/btnMission"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:onClick="minigame"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+
+                    android:clickable="true" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:text="Items"
+                    android:id="@+id/btnItem"
+                    android:background="#8c213e42"
+                    android:layout_below="@+id/btnGame"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:onClick="items"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+
+                    android:clickable="true" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:text="Credits"
+                    android:id="@+id/btnCred"
+                    android:background="#8c213e42"
+                    android:layout_below="@+id/btnItem"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:onClick="credits"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+
+                    android:clickable="true" />
 
                 <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:id="@+id/fliplay3"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true">
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/btnMission"
+                    android:background="#5774797a"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:id="@+id/lay1"
+                    android:layout_alignParentBottom="true" >
 
-                    <ImageView
+                    <ViewFlipper
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:id="@+id/img3"
-                        android:background="#ffff23a6" />
+                        android:id="@+id/flip"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignLeft="@+id/mg1lay"
+                        android:layout_alignStart="@+id/mg1lay" >
+
+                        <RelativeLayout
+                            android:orientation="vertical"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:id="@+id/minigameLayout"
+                            android:showDividers="middle|beginning|end"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true" >
+
+                            <Button
+                                android:layout_width="100dp"
+                                android:layout_height="35dp"
+                                android:text="Start Game"
+                                android:id="@+id/btnStart"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:background="#ff190e4d"
+                                android:textColor="#ffffffff"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginTop="5dp"
+                                android:onClick="startMinigame"
+                                android:outlineProvider="paddedBounds" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Minigames"
+                                android:id="@+id/titleMG"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="5dp" />
+
+                            <ImageView
+                                android:layout_width="fill_parent"
+                                android:layout_height="3dp"
+                                android:id="@+id/line1"
+                                android:background="#ff000000"
+                                android:layout_below="@+id/titleMG"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp" />
+
+                            <RelativeLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/mg1lay"
+                                android:layout_toEndOf="@+id/mg1"
+                                android:layout_alignLeft="@+id/mg1"
+                                android:layout_alignStart="@+id/mg1"
+                                android:layout_below="@+id/line1"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:onClick="startShroom"
+                                android:background="#00000000">
+
+                                <ImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:id="@+id/mg1"
+                                    android:layout_below="@+id/line1"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentStart="true"
+                                    android:background="@drawable/shroom_shroom"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Shroom bla bla bla blahisohdiosahdiosa lots and lots of shrrooooommmms"
+                                    android:id="@+id/mg1Desc"
+                                    android:layout_alignBottom="@+id/mg1"
+                                    android:layout_alignTop="@+id/mg1"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:layout_toRightOf="@+id/mg1"
+                                    android:layout_toEndOf="@+id/mg1"
+                                    android:layout_marginLeft="10dp"
+                                    android:textSize="13dp" />
+
+                                <ImageView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="2dp"
+                                    android:id="@+id/line4"
+                                    android:background="#ff505050"
+                                    android:layout_below="@+id/mg1"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentStart="true" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/mg2lay"
+                                android:layout_below="@+id/mg1lay"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:onClick="startSlashy">
+
+                                <ImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:id="@+id/imageView2"
+                                    android:layout_below="@+id/line1"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentStart="true"
+                                    android:background="@drawable/slashy_knight_neutral"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Slashy bla bla bla bla blaskdiosahiodhasiodhioashdioashdas"
+                                    android:id="@+id/mg2Desc"
+                                    android:layout_alignBottom="@+id/imageView2"
+                                    android:layout_alignTop="@+id/imageView2"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:layout_toRightOf="@+id/imageView2"
+                                    android:layout_toEndOf="@+id/imageView2"
+                                    android:layout_marginLeft="10dp"
+                                    android:textSize="13dp" />
+
+                                <ImageView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="2dp"
+                                    android:id="@+id/line2"
+                                    android:background="#ff505050"
+                                    android:layout_below="@+id/imageView2"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentStart="true" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/mg3lay"
+                                android:layout_below="@+id/mg2lay"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp" >
+
+                                <ImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:id="@+id/imageView3"
+                                    android:layout_below="@+id/line1"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentStart="true"
+                                    android:background="#ff190e4d"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Memory bla bla bla bla bla bla bla bla"
+                                    android:id="@+id/mg3Desc"
+                                    android:layout_alignBottom="@+id/imageView3"
+                                    android:layout_alignTop="@+id/imageView3"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:layout_toRightOf="@+id/imageView3"
+                                    android:layout_toEndOf="@+id/imageView3"
+                                    android:layout_marginLeft="10dp"
+                                    android:textSize="13dp" />
+
+                                <ImageView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="2dp"
+                                    android:id="@+id/line3"
+                                    android:background="#ff505050"
+                                    android:layout_below="@+id/imageView3"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentStart="true" />
+                            </RelativeLayout>
+
+                            <ImageView
+                                android:layout_width="1dp"
+                                android:layout_height="fill_parent"
+                                android:id="@+id/outerLine"
+                                android:background="#ff353535"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:orientation="vertical"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:id="@+id/missionLayout"
+                            android:showDividers="middle|beginning|end"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true" >
+
+                            <Button
+                                android:layout_width="100dp"
+                                android:layout_height="35dp"
+                                android:text="Do Mission"
+                                android:id="@+id/btnDoMiss"
+                                android:background="#ff190e4d"
+                                android:textColor="#ffffffff"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignRight="@+id/titleMiss"
+                                android:layout_alignEnd="@+id/titleMiss"
+                                android:layout_marginBottom="10dp" />
+
+                            <ImageView
+                                android:layout_width="fill_parent"
+                                android:layout_height="3dp"
+                                android:id="@+id/imgX"
+                                android:background="#ff000000"
+                                android:layout_below="@+id/titleMiss"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp" />
+
+                            <ImageView
+                                android:layout_width="1dp"
+                                android:layout_height="fill_parent"
+                                android:id="@+id/imageView4"
+                                android:background="#ff353535"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Missions"
+                                android:id="@+id/titleMiss"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="5dp" />
+
+                            <ScrollView
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:id="@+id/missionScroll"
+                                android:layout_below="@+id/imgX"
+                                android:layout_toRightOf="@+id/imageView4"
+                                android:layout_toEndOf="@+id/imageView4"
+                                android:layout_above="@+id/btnDoMiss"
+                                android:layout_margin="10dp"
+                                android:background="#84808080"
+                                android:fillViewport="false" >
+
+                                <RelativeLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="1000dp"
+                                    android:id="@+id/scrollLay" >
+
+                                    <RelativeLayout
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/mission2"
+                                        android:padding="2dp"
+                                        android:outlineProvider="paddedBounds"
+                                        android:layout_below="@+id/mission3"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_alignParentStart="true"
+                                        android:onClick="markMission">
+
+                                        <ImageView
+                                            android:layout_width="fill_parent"
+                                            android:layout_height="1dp"
+                                            android:id="@+id/imageView6"
+                                            android:background="#86555555"
+                                            android:layout_alignParentBottom="true"
+                                            android:layout_alignParentLeft="true"
+                                            android:layout_alignParentStart="true" />
+
+                                        <TextView
+                                            android:layout_width="120dp"
+                                            android:layout_height="wrap_content"
+                                            android:textAppearance="?android:attr/textAppearanceLarge"
+                                            android:text="Lady Oberyn"
+                                            android:id="@+id/textView2"
+                                            android:layout_centerVertical="true"
+                                            android:layout_alignLeft="@+id/imageView6"
+                                            android:layout_alignStart="@+id/imageView6"
+                                            android:layout_marginLeft="10dp"
+                                            android:textStyle="bold"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="30dp"
+                                            android:layout_height="fill_parent"
+                                            android:textAppearance="?android:attr/textAppearanceMedium"
+                                            android:text="81%"
+                                            android:id="@+id/textView3"
+                                            android:gravity="center"
+                                            android:textSize="15dp"
+                                            android:layout_marginLeft="23dp"
+                                            android:layout_marginStart="23dp"
+                                            android:layout_alignTop="@+id/textView7"
+                                            android:layout_toRightOf="@+id/textView2"
+                                            android:layout_toEndOf="@+id/textView2" />
+
+                                        <TextView
+                                            android:layout_width="70dp"
+                                            android:layout_height="fill_parent"
+                                            android:textAppearance="?android:attr/textAppearanceMedium"
+                                            android:text="10829 G"
+                                            android:id="@+id/textView7"
+                                            android:gravity="left|center"
+                                            android:textSize="15dp"
+                                            android:layout_alignTop="@+id/textView9"
+                                            android:layout_toRightOf="@+id/textView3"
+                                            android:layout_toEndOf="@+id/textView3"
+                                            android:layout_marginLeft="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textAppearance="?android:attr/textAppearanceSmall"
+                                            android:text="Items needed:"
+                                            android:id="@+id/textView8"
+                                            android:textStyle="bold"
+                                            android:textSize="11dp"
+                                            android:layout_alignParentTop="true"
+                                            android:layout_alignRight="@+id/textView9"
+                                            android:layout_alignEnd="@+id/textView9"
+                                            android:layout_marginRight="51dp"
+                                            android:layout_marginEnd="51dp" />
+
+                                        <TextView
+                                            android:layout_width="fill_parent"
+                                            android:layout_height="fill_parent"
+                                            android:textAppearance="?android:attr/textAppearanceSmall"
+                                            android:text="Lantern, Vial, Stuff, Stuff stuff and more more more rmeo stuff"
+                                            android:id="@+id/textView9"
+                                            android:layout_toEndOf="@+id/textView7"
+                                            android:textStyle="italic"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:gravity="center"
+                                            android:layout_alignTop="@+id/textView2"
+                                            android:layout_marginTop="15dp"
+                                            android:textSize="10dp" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/mission3"
+                                        android:padding="2dp"
+                                        android:outlineProvider="paddedBounds"
+                                        android:layout_below="@+id/mission3"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_alignParentStart="true"
+                                        android:onClick="markMission">
+
+                                        <ImageView
+                                            android:layout_width="fill_parent"
+                                            android:layout_height="1dp"
+                                            android:id="@+id/imageView6"
+                                            android:background="#86555555"
+                                            android:layout_alignParentBottom="true"
+                                            android:layout_alignParentLeft="true"
+                                            android:layout_alignParentStart="true" />
+
+                                        <TextView
+                                            android:layout_width="120dp"
+                                            android:layout_height="wrap_content"
+                                            android:textAppearance="?android:attr/textAppearanceLarge"
+                                            android:text="Vial of the Goat"
+                                            android:id="@+id/textView2"
+                                            android:layout_centerVertical="true"
+                                            android:layout_alignLeft="@+id/imageView6"
+                                            android:layout_alignStart="@+id/imageView6"
+                                            android:layout_marginLeft="10dp"
+                                            android:textStyle="bold"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="30dp"
+                                            android:layout_height="fill_parent"
+                                            android:textAppearance="?android:attr/textAppearanceMedium"
+                                            android:text="81%"
+                                            android:id="@+id/textView3"
+                                            android:gravity="center"
+                                            android:textSize="15dp"
+                                            android:layout_marginLeft="23dp"
+                                            android:layout_marginStart="23dp"
+                                            android:layout_alignTop="@+id/textView7"
+                                            android:layout_toRightOf="@+id/textView2"
+                                            android:layout_toEndOf="@+id/textView2" />
+
+                                        <TextView
+                                            android:layout_width="70dp"
+                                            android:layout_height="fill_parent"
+                                            android:textAppearance="?android:attr/textAppearanceMedium"
+                                            android:text="10829 G"
+                                            android:id="@+id/textView7"
+                                            android:gravity="left|center"
+                                            android:textSize="15dp"
+                                            android:layout_alignTop="@+id/textView9"
+                                            android:layout_toRightOf="@+id/textView3"
+                                            android:layout_toEndOf="@+id/textView3"
+                                            android:layout_marginLeft="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textAppearance="?android:attr/textAppearanceSmall"
+                                            android:text="Items needed:"
+                                            android:id="@+id/textView8"
+                                            android:textStyle="bold"
+                                            android:textSize="11dp"
+                                            android:layout_alignParentTop="true"
+                                            android:layout_alignRight="@+id/textView9"
+                                            android:layout_alignEnd="@+id/textView9"
+                                            android:layout_marginRight="51dp"
+                                            android:layout_marginEnd="51dp" />
+
+                                        <TextView
+                                            android:layout_width="fill_parent"
+                                            android:layout_height="fill_parent"
+                                            android:textAppearance="?android:attr/textAppearanceSmall"
+                                            android:text="Lantern, Vial, Stuff, Stuff stuff and more more more rmeo stuff"
+                                            android:id="@+id/textView9"
+                                            android:layout_toEndOf="@+id/textView7"
+                                            android:textStyle="italic"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:gravity="center"
+                                            android:layout_alignTop="@+id/textView2"
+                                            android:layout_marginTop="15dp"
+                                            android:textSize="10dp" />
+                                    </RelativeLayout>
+                                </RelativeLayout>
+                            </ScrollView>
+                        </RelativeLayout>
+
+                    </ViewFlipper>
+
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/fliplay4"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true">
-
-                    <ImageView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/img4"
-                        android:background="#ff30fffb" />
-                </RelativeLayout>
-
-            </ViewFlipper>
-
+            </RelativeLayout>
         </RelativeLayout>
 
         <Button
