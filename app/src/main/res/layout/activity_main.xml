@@ -299,7 +299,8 @@
                                 android:layout_alignParentLeft="true"
                                 android:layout_alignParentStart="true"
                                 android:layout_marginRight="10dp"
-                                android:layout_marginLeft="10dp" >
+                                android:layout_marginLeft="10dp"
+                                android:onClick="startMemory">
 
                                 <ImageView
                                     android:layout_width="45dp"
@@ -372,7 +373,8 @@
                                 android:layout_alignParentBottom="true"
                                 android:layout_alignRight="@+id/titleMiss"
                                 android:layout_alignEnd="@+id/titleMiss"
-                                android:layout_marginBottom="10dp" />
+                                android:layout_marginBottom="10dp"
+                                android:onClick="startMission" />
 
                             <ImageView
                                 android:layout_width="fill_parent"
@@ -419,188 +421,9 @@
 
                                 <RelativeLayout
                                     android:layout_width="fill_parent"
-                                    android:layout_height="1000dp"
+                                    android:layout_height="fill_parent"
                                     android:id="@+id/scrollLay" >
 
-                                    <RelativeLayout
-                                        android:layout_width="fill_parent"
-                                        android:layout_height="wrap_content"
-                                        android:id="@+id/mission2"
-                                        android:padding="2dp"
-                                        android:outlineProvider="paddedBounds"
-                                        android:layout_below="@+id/mission3"
-                                        android:layout_alignParentLeft="true"
-                                        android:layout_alignParentStart="true"
-                                        android:onClick="markMission">
-
-                                        <ImageView
-                                            android:layout_width="fill_parent"
-                                            android:layout_height="1dp"
-                                            android:id="@+id/imageView6"
-                                            android:background="#86555555"
-                                            android:layout_alignParentBottom="true"
-                                            android:layout_alignParentLeft="true"
-                                            android:layout_alignParentStart="true" />
-
-                                        <TextView
-                                            android:layout_width="120dp"
-                                            android:layout_height="wrap_content"
-                                            android:textAppearance="?android:attr/textAppearanceLarge"
-                                            android:text="Lady Oberyn"
-                                            android:id="@+id/textView2"
-                                            android:layout_centerVertical="true"
-                                            android:layout_alignLeft="@+id/imageView6"
-                                            android:layout_alignStart="@+id/imageView6"
-                                            android:layout_marginLeft="10dp"
-                                            android:textStyle="bold"
-                                            android:textSize="15dp" />
-
-                                        <TextView
-                                            android:layout_width="30dp"
-                                            android:layout_height="fill_parent"
-                                            android:textAppearance="?android:attr/textAppearanceMedium"
-                                            android:text="81%"
-                                            android:id="@+id/textView3"
-                                            android:gravity="center"
-                                            android:textSize="15dp"
-                                            android:layout_marginLeft="23dp"
-                                            android:layout_marginStart="23dp"
-                                            android:layout_alignTop="@+id/textView7"
-                                            android:layout_toRightOf="@+id/textView2"
-                                            android:layout_toEndOf="@+id/textView2" />
-
-                                        <TextView
-                                            android:layout_width="70dp"
-                                            android:layout_height="fill_parent"
-                                            android:textAppearance="?android:attr/textAppearanceMedium"
-                                            android:text="10829 G"
-                                            android:id="@+id/textView7"
-                                            android:gravity="left|center"
-                                            android:textSize="15dp"
-                                            android:layout_alignTop="@+id/textView9"
-                                            android:layout_toRightOf="@+id/textView3"
-                                            android:layout_toEndOf="@+id/textView3"
-                                            android:layout_marginLeft="10dp" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:textAppearance="?android:attr/textAppearanceSmall"
-                                            android:text="Items needed:"
-                                            android:id="@+id/textView8"
-                                            android:textStyle="bold"
-                                            android:textSize="11dp"
-                                            android:layout_alignParentTop="true"
-                                            android:layout_alignRight="@+id/textView9"
-                                            android:layout_alignEnd="@+id/textView9"
-                                            android:layout_marginRight="51dp"
-                                            android:layout_marginEnd="51dp" />
-
-                                        <TextView
-                                            android:layout_width="fill_parent"
-                                            android:layout_height="fill_parent"
-                                            android:textAppearance="?android:attr/textAppearanceSmall"
-                                            android:text="Lantern, Vial, Stuff, Stuff stuff and more more more rmeo stuff"
-                                            android:id="@+id/textView9"
-                                            android:layout_toEndOf="@+id/textView7"
-                                            android:textStyle="italic"
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginBottom="5dp"
-                                            android:gravity="center"
-                                            android:layout_alignTop="@+id/textView2"
-                                            android:layout_marginTop="15dp"
-                                            android:textSize="10dp" />
-                                    </RelativeLayout>
-
-                                    <RelativeLayout
-                                        android:layout_width="fill_parent"
-                                        android:layout_height="wrap_content"
-                                        android:id="@+id/mission3"
-                                        android:padding="2dp"
-                                        android:outlineProvider="paddedBounds"
-                                        android:layout_below="@+id/mission3"
-                                        android:layout_alignParentLeft="true"
-                                        android:layout_alignParentStart="true"
-                                        android:onClick="markMission">
-
-                                        <ImageView
-                                            android:layout_width="fill_parent"
-                                            android:layout_height="1dp"
-                                            android:id="@+id/imageView6"
-                                            android:background="#86555555"
-                                            android:layout_alignParentBottom="true"
-                                            android:layout_alignParentLeft="true"
-                                            android:layout_alignParentStart="true" />
-
-                                        <TextView
-                                            android:layout_width="120dp"
-                                            android:layout_height="wrap_content"
-                                            android:textAppearance="?android:attr/textAppearanceLarge"
-                                            android:text="Vial of the Goat"
-                                            android:id="@+id/textView2"
-                                            android:layout_centerVertical="true"
-                                            android:layout_alignLeft="@+id/imageView6"
-                                            android:layout_alignStart="@+id/imageView6"
-                                            android:layout_marginLeft="10dp"
-                                            android:textStyle="bold"
-                                            android:textSize="15dp" />
-
-                                        <TextView
-                                            android:layout_width="30dp"
-                                            android:layout_height="fill_parent"
-                                            android:textAppearance="?android:attr/textAppearanceMedium"
-                                            android:text="81%"
-                                            android:id="@+id/textView3"
-                                            android:gravity="center"
-                                            android:textSize="15dp"
-                                            android:layout_marginLeft="23dp"
-                                            android:layout_marginStart="23dp"
-                                            android:layout_alignTop="@+id/textView7"
-                                            android:layout_toRightOf="@+id/textView2"
-                                            android:layout_toEndOf="@+id/textView2" />
-
-                                        <TextView
-                                            android:layout_width="70dp"
-                                            android:layout_height="fill_parent"
-                                            android:textAppearance="?android:attr/textAppearanceMedium"
-                                            android:text="10829 G"
-                                            android:id="@+id/textView7"
-                                            android:gravity="left|center"
-                                            android:textSize="15dp"
-                                            android:layout_alignTop="@+id/textView9"
-                                            android:layout_toRightOf="@+id/textView3"
-                                            android:layout_toEndOf="@+id/textView3"
-                                            android:layout_marginLeft="10dp" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:textAppearance="?android:attr/textAppearanceSmall"
-                                            android:text="Items needed:"
-                                            android:id="@+id/textView8"
-                                            android:textStyle="bold"
-                                            android:textSize="11dp"
-                                            android:layout_alignParentTop="true"
-                                            android:layout_alignRight="@+id/textView9"
-                                            android:layout_alignEnd="@+id/textView9"
-                                            android:layout_marginRight="51dp"
-                                            android:layout_marginEnd="51dp" />
-
-                                        <TextView
-                                            android:layout_width="fill_parent"
-                                            android:layout_height="fill_parent"
-                                            android:textAppearance="?android:attr/textAppearanceSmall"
-                                            android:text="Lantern, Vial, Stuff, Stuff stuff and more more more rmeo stuff"
-                                            android:id="@+id/textView9"
-                                            android:layout_toEndOf="@+id/textView7"
-                                            android:textStyle="italic"
-                                            android:layout_marginRight="10dp"
-                                            android:layout_marginBottom="5dp"
-                                            android:gravity="center"
-                                            android:layout_alignTop="@+id/textView2"
-                                            android:layout_marginTop="15dp"
-                                            android:textSize="10dp" />
-                                    </RelativeLayout>
                                 </RelativeLayout>
                             </ScrollView>
                         </RelativeLayout>

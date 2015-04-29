@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.SlidingDrawer;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.example.andreas.mainview.shroom.ShroomActivity;
@@ -35,10 +37,18 @@ public class MainActivity extends Activity {
 
     private ViewFlipper flip;
 
+    private RelativeLayout scrollLay;
+
+    private MissionCollection mc;
+
     private RelativeLayout mgLay;
     private RelativeLayout missLay;
     private RelativeLayout fliplay3;
     private RelativeLayout fliplay4;
+
+    private RelativeLayout mgShroom;
+    private RelativeLayout mgSlashy;
+    private RelativeLayout mgMemory;
 
     private Button btnCred;
     private Button btnItem;
@@ -68,6 +78,11 @@ public class MainActivity extends Activity {
         mgLay=(RelativeLayout)findViewById(R.id.minigameLayout);
         missLay=(RelativeLayout)findViewById(R.id.missionLayout);
 
+        mgShroom=(RelativeLayout)findViewById(R.id.mg1lay);
+        mgSlashy=(RelativeLayout)findViewById(R.id.mg2lay);
+        mgMemory=(RelativeLayout)findViewById(R.id.mg3lay);
+
+        scrollLay =(RelativeLayout)findViewById(R.id.scrollLay);
 
         btnMG=(Button)findViewById(R.id.btnGame);
         btnMiss=(Button)findViewById(R.id.btnMission);
@@ -131,7 +146,33 @@ public class MainActivity extends Activity {
                 menuSlide.setEnabled(Boolean.TRUE);
                 menuSlide.setVisibility(View.VISIBLE);
 
+                RelativeLayout.LayoutParams params4 = new RelativeLayout.LayoutParams(
+                        RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 
+
+                LayoutInflater factory = LayoutInflater.from(context);
+                View myView1 = factory.inflate(R.layout.mission_view, null);
+                //noinspection ResourceType
+                myView1.setId(1);
+
+
+
+                params4.addRule(RelativeLayout.BELOW,myView1.getId());
+                MissionView v=new MissionView(2,"Testing Missions",31,41543,"Flammande bägare, o sånt",context);
+
+                mc=new MissionCollection(5,context);
+
+                for(int i=0;i<mc.getMissions().size();i++){
+                    if(i>0){
+                        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                                RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+                        params.addRule(RelativeLayout.BELOW,mc.getMissions().get(i-1).getId());
+                        scrollLay.addView(mc.getMissions().get(i),params);
+                    }else{
+                        scrollLay.addView(mc.getMissions().get(i));
+                    }
+                }
 
                 //Kalla på Karta och kontrollera mot sparad fil vilken karta som ska laddas.
 
@@ -139,8 +180,33 @@ public class MainActivity extends Activity {
         }.start();
     }
     public void markMission(View lay){
-        lay.setBackgroundColor(Color.parseColor("#b5aaaaaa"));
+
+        unMarkMissions();
+        for(int i=0;i<mc.getMissions().size();i++){
+
+            if(mc.getMissions().get(i).getId()==lay.getId()) {
+                mc.getMissions().get(i).mark();
+            }
+        }
+
+
     }
+
+    public void unMarkMissions(){
+        for(int i=0;i<mc.getMissions().size();i++){
+            mc.getMissions().get(i).unMark();
+        }
+    }
+
+    public void startMission(View btn){
+        for(int i=0;i<mc.getMissions().size();i++){
+          if(mc.getMissions().get(i).isMarked()){
+                //MissionLogic.start(mc.getMissions().get(i).getProbability();
+            }
+        }
+    }
+
+
     public void resetButtoncolor(){
         btnMiss.setBackgroundColor(Color.parseColor("#8c213e42"));
         btnMG.setBackgroundColor(Color.parseColor("#8c213e42"));
@@ -170,14 +236,26 @@ public class MainActivity extends Activity {
     }
 
     public void startSlashy(View layout){
+        unMarkGames();
          intent = new Intent(context, SlashyActivity.class);
-        layout.setBackgroundColor(Color.parseColor("#b5aaaaaa"));
+        mgSlashy.setBackgroundColor(Color.parseColor("#b5aaaaaa"));
     }
     public void startShroom(View layout){
+        unMarkGames();
         intent = new Intent(context, ShroomActivity.class);
 
       //  layout.setBackgroundColor(Color.parseColor("#00000000"));
-        layout.setBackgroundColor(Color.parseColor("#b5aaaaaa"));
+        mgShroom.setBackgroundColor(Color.parseColor("#b5aaaaaa"));
+    }
+    public void startMemory(View layout){
+        unMarkGames();
+        //intent = new Intent(context, MemoryActivity.class);
+        mgMemory.setBackgroundColor(Color.parseColor("#b5aaaaaa"));
+    }
+    public void unMarkGames(){
+          mgShroom.setBackgroundColor(Color.parseColor("#00000000"));
+          mgSlashy.setBackgroundColor(Color.parseColor("#00000000"));
+          mgMemory.setBackgroundColor(Color.parseColor("#00000000"));
     }
     public void startMinigame(View button){
         startActivity(intent);

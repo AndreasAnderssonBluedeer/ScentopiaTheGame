@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/missionView"
+    android:padding="2dp"
+    android:outlineProvider="paddedBounds"
+
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:onClick="markMission"
+    tools:showIn="@layout/activity_main">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:id="@+id/line"
+        android:background="#86555555"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Lady Oberyn"
+        android:id="@+id/missionTitle"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/line"
+        android:layout_alignStart="@+id/line"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:textSize="15dp" />
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="fill_parent"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="81%"
+        android:id="@+id/probability"
+        android:gravity="center"
+        android:textSize="15dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:layout_alignTop="@+id/gold"
+        android:layout_toRightOf="@+id/missionTitle"
+        android:layout_toEndOf="@+id/missionTitle" />
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="fill_parent"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="10829 G"
+        android:id="@+id/gold"
+        android:gravity="left|center"
+        android:textSize="15dp"
+        android:layout_alignTop="@+id/items"
+        android:layout_toRightOf="@+id/probability"
+        android:layout_toEndOf="@+id/probability"
+        android:layout_marginLeft="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Items needed:"
+        android:id="@+id/itemTitle"
+        android:textStyle="bold"
+        android:textSize="11dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/items"
+        android:layout_alignEnd="@+id/items"
+        android:layout_marginRight="51dp"
+        android:layout_marginEnd="51dp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Lantern, Vial, Stuff, Stuff stuff and more more more rmeo stuff"
+        android:id="@+id/items"
+        android:layout_toEndOf="@+id/gold"
+        android:textStyle="italic"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:layout_alignTop="@+id/missionTitle"
+        android:layout_marginTop="15dp"
+        android:textSize="10dp" />
+</RelativeLayout>

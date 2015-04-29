@@ -15,49 +15,35 @@ public class Level {
 
         if(points==200){
 
-            countdown(1);           //Lvl 1
+            newAttack(1);           //Lvl 1
         }
         if(points==400){
-             countdown(2);          //Lvl 2 osv.
+             newAttack(2);          //Lvl 2 osv.
         }
         if(points==600){
-            countdown(3);
+            newAttack(3);
         }
         if(points==800){
-            countdown(4);
+            newAttack(4);
         }
         if(points==1000){
-            countdown(5);
+            newAttack(5);
         }
         if(points==1200){
-            countdown(6);
+            newAttack(6);
         }
         if(points==1400){
-            countdown(7);
+            newAttack(7);
         }
         if(points==1600){
-            countdown(8);
+            newAttack(8);
         }
         if(points==2000){
-            countdown(9);
+            newAttack(9);
         }
 
     }
-    public void countdown(final int level){  //Funkar detta med final? pga onFinish()
 
-        new CountDownTimer(400, 400) {
-            @Override
-            public void onTick(long millisUntilFinished){
-            }
-
-            @Override
-            public void onFinish() {
-            newAttack(level);
-            }
-
-
-        }.start();
-    }
     public void newAttack(int level){
         switch (level){
             case 1: sa.newLeft();       //Level 1=Case 1, Level 2= Case 2 osv.
