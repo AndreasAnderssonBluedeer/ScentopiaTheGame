@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="70dp"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:id="@+id/itemView"
+    android:onClick="markItem">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/itemImg"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:background="#ff690f85"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Mining Pick"
+        android:id="@+id/itemTitle"
+        android:layout_toRightOf="@+id/itemImg"
+        android:layout_toEndOf="@+id/itemImg"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:gravity="center_vertical" />
+
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="165 G"
+        android:id="@+id/txtGold"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/itemTitle"
+        android:layout_toEndOf="@+id/itemTitle"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="5dp"
+        android:gravity="center_vertical|right" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:id="@+id/imageView6"
+        android:background="#ae020202"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox"
+        android:checked="false"
+        android:gravity="center_vertical|center|center_horizontal"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/txtGold"
+        android:layout_toEndOf="@+id/txtGold"
+        android:layout_marginLeft="20dp"
+
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Increases Missionprobability in Part 1"
+        android:id="@+id/txtDesc"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/txtGold"
+        android:layout_toRightOf="@+id/checkBox"
+        android:layout_toEndOf="@+id/checkBox"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:textSize="11dp"
+        android:textStyle="italic" />
+
+</RelativeLayout>

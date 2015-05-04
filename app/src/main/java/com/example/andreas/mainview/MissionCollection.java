@@ -57,7 +57,8 @@ public class MissionCollection {
         //Part One Missions
        listAll.add(new MissionView(id++,"Testing Missions 1",31,41543,"Flammande bägare, o sånt",context));
 
-       listAll.add(new MissionView(id++,"Something something 1",51,443,"Knaspatruller, o sånt",context));
+       listAll.add(new MissionView(id++,"Something something 1",51,443,"Knaspatruller, o sånt" +
+               "BLA BLA BLA BLABA LHEJSAN HOPPSA NEBALA",context));
     }
     public synchronized void partTwo(){
         //Part Two Missions

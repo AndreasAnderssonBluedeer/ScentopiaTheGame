@@ -1,9 +1,12 @@
 package com.example.andreas.mainview;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Bundle;
@@ -26,6 +29,7 @@ import com.example.andreas.mainview.slashy.SlashyActivity;
 
 public class MainActivity extends Activity {
 
+    private Drawable drawable;
     private RelativeLayout layout;
     private ProgressBar loadProg;
     private HorizontalScrollView map;
@@ -38,18 +42,22 @@ public class MainActivity extends Activity {
     private ViewFlipper flip;
 
     private RelativeLayout scrollLay;
+    private RelativeLayout itemScroll;
 
     private MissionCollection mc;
+    private ItemCollection ic;
 
     private RelativeLayout mgLay;
     private RelativeLayout missLay;
-    private RelativeLayout fliplay3;
+    private RelativeLayout itemLay;
     private RelativeLayout fliplay4;
 
     private RelativeLayout mgShroom;
     private RelativeLayout mgSlashy;
     private RelativeLayout mgMemory;
 
+    private TextView txtGold;
+    private int gold=200;
     private Button btnCred;
     private Button btnItem;
     private Button btnMG;
@@ -77,18 +85,22 @@ public class MainActivity extends Activity {
 
         mgLay=(RelativeLayout)findViewById(R.id.minigameLayout);
         missLay=(RelativeLayout)findViewById(R.id.missionLayout);
+        itemLay=(RelativeLayout)findViewById(R.id.itemsLayout);
 
         mgShroom=(RelativeLayout)findViewById(R.id.mg1lay);
         mgSlashy=(RelativeLayout)findViewById(R.id.mg2lay);
         mgMemory=(RelativeLayout)findViewById(R.id.mg3lay);
 
         scrollLay =(RelativeLayout)findViewById(R.id.scrollLay);
+        itemScroll=(RelativeLayout)findViewById(R.id.relativeLayout2);
 
         btnMG=(Button)findViewById(R.id.btnGame);
         btnMiss=(Button)findViewById(R.id.btnMission);
         btnItem=(Button)findViewById(R.id.btnItem);
-        btnCred=(Button)findViewById(R.id.btnCred);
+        btnCred=(Button)findViewById(R.id.btnQuest);
 
+        txtGold=(TextView)findViewById(R.id.txtGold);
+        txtGold.setVisibility(View.INVISIBLE);
 
         MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.loadingsound);
         mp.start();
@@ -145,35 +157,10 @@ public class MainActivity extends Activity {
 
                 menuSlide.setEnabled(Boolean.TRUE);
                 menuSlide.setVisibility(View.VISIBLE);
+                txtGold.setVisibility(View.VISIBLE);
 
-                RelativeLayout.LayoutParams params4 = new RelativeLayout.LayoutParams(
-                        RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-
-
-                LayoutInflater factory = LayoutInflater.from(context);
-                View myView1 = factory.inflate(R.layout.mission_view, null);
-                //noinspection ResourceType
-                myView1.setId(1);
-
-
-
-                params4.addRule(RelativeLayout.BELOW,myView1.getId());
-                MissionView v=new MissionView(2,"Testing Missions",31,41543,"Flammande bägare, o sånt",context);
-
-                mc=new MissionCollection(5,context);
-
-                for(int i=0;i<mc.getMissions().size();i++){
-                    if(i>0){
-                        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
-                                RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-
-                        params.addRule(RelativeLayout.BELOW,mc.getMissions().get(i-1).getId());
-                        scrollLay.addView(mc.getMissions().get(i),params);
-                    }else{
-                        scrollLay.addView(mc.getMissions().get(i));
-                    }
-                }
-
+              fillMissionList();
+              fillItemsList();
                 //Kalla på Karta och kontrollera mot sparad fil vilken karta som ska laddas.
 
             }
@@ -227,7 +214,7 @@ public class MainActivity extends Activity {
     public void items(View button){
         resetButtoncolor();
         button.setBackgroundColor(Color.parseColor("#9e330e80"));
-        //FLIP
+        flip.setDisplayedChild(flip.indexOfChild(itemLay));
     }
     public void credits(View button){
         resetButtoncolor();
@@ -261,11 +248,106 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    public void fillMissionList(){
 
 
 
+        mc=new MissionCollection(5,context);
+
+        for(int i=0;i<mc.getMissions().size();i++){
+            if(i>0){
+                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                        RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+                params.addRule(RelativeLayout.BELOW,mc.getMissions().get(i-1).getId());
+                scrollLay.addView(mc.getMissions().get(i),params);
+            }else{
+                scrollLay.addView(mc.getMissions().get(i));
+            }
+        }
+    }
+    public void fillItemsList(){
+
+        ic=new ItemCollection(5,context);
+
+        for(int i=0;i<ic.getItemList().size();i++){
+            if(i>0){
+                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                        RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+                params.addRule(RelativeLayout.BELOW,ic.getItemList().get(i-1).getId());
+                itemScroll.addView(ic.getItemList().get(i),params);
+            }else{
+                itemScroll.addView(ic.getItemList().get(i));
+            }
+        }
+    }
+
+    public void markItem(View item){
+
+        unMarkItems();
+
+        for(int i=0;i<ic.getItemList().size();i++){
+
+            if(ic.getItemList().get(i).getId()==item.getId()) {
+                ic.getItemList().get(i).mark();
+            }
+        }
+    }
+    public void unMarkItems(){
 
 
+        for(int i=0;i<ic.getItemList().size();i++){
+            ic.getItemList().get(i).unMark();
 
+        }
+    }
+
+    public void buyItem(View btn) {
+        for (int i = 0; i < ic.getItemList().size(); i++) {
+            if (ic.getItemList().get(i).isMarked()) {
+                if (!ic.getItemList().get(i).isBought()) {
+                    if (ic.getItemList().get(i).getPrice() <= gold) {
+                        //Dialog ruta KÖP GENOMFÖRT
+                        gold = gold - ic.getItemList().get(i).getPrice();
+                        txtGold.setText(gold + " G");
+                        ic.getItemList().get(i).bought();
+                        new AlertDialog.Builder(this)
+
+                                .setMessage(ic.getItemList().get(i).getName() + " is now bought.")
+                                .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                    }
+                                })
+
+                                .show();
+
+                    }else{
+                        noBuy();
+                    }
+                }
+                    //Uppdatera ItemList,MissionList osv.
+                    else {
+
+                        noBuy();
+                    }
+                }
+
+            }
+
+
+        }
+    public void noBuy(){
+        new AlertDialog.Builder(this)
+                .setMessage("You either need more GOLD or You've already bought this ITEM.")
+                .setPositiveButton("Okay :(", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+
+                .show();
+    }
 
 }
