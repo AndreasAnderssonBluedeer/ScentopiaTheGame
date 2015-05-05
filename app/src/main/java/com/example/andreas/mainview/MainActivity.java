@@ -314,7 +314,7 @@ public class MainActivity extends Activity {
                         ic.getItemList().get(i).bought();
                         new AlertDialog.Builder(this)
 
-                                .setMessage(ic.getItemList().get(i).getName() + " is now bought.")
+                                .setMessage(ic.getItemList().get(i).getName() + " is now Yours.")
                                 .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
 
@@ -324,13 +324,13 @@ public class MainActivity extends Activity {
                                 .show();
 
                     }else{
-                        noBuy();
+                        noBuy("Sorry,You need more GOLD.");
                     }
                 }
                     //Uppdatera ItemList,MissionList osv.
                     else {
 
-                        noBuy();
+                        noBuy("You already own this ITEM.");
                     }
                 }
 
@@ -338,9 +338,9 @@ public class MainActivity extends Activity {
 
 
         }
-    public void noBuy(){
+    public void noBuy(String str){
         new AlertDialog.Builder(this)
-                .setMessage("You either need more GOLD or You've already bought this ITEM.")
+                .setMessage(str)
                 .setPositiveButton("Okay :(", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
