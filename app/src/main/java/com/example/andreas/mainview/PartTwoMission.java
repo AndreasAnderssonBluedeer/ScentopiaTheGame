@@ -22,13 +22,13 @@ public class PartTwoMission {
         this.rope=rope;
         this.r_boots=r_boots;
 
-        if(sickle=true){
+        if(sickle==true){
             modifier+=10;
         }
-        if(rope=true){
+        if(rope==true){
             modifier+=10;
         }
-        if(r_boots=true){
+        if(r_boots==true){
             modifier+=10;
         }
 

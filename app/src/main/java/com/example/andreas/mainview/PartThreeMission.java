@@ -24,16 +24,16 @@ public class PartThreeMission {
         this.horse=horse;
         this.permit=permit;
 
-        if(compass=true){
+        if(compass==true){
             modifier+=10;
         }
-        if(axe=true){
+        if(axe==true){
             modifier+=10;
         }
-        if (horse=true){
+        if (horse==true){
             modifier+=10;
         }
-        if (permit=true){
+        if (permit==true){
             modifier+=10;
         }
 

@@ -20,10 +20,10 @@ public class PartOneMission {
         this.pickaxe=pickaxe;
         this.torch=torch;
 
-        if(pickaxe=true){
+        if(pickaxe==true){
             modifier+=10;
         }
-        if(torch=true){
+        if(torch==true){
             modifier+=10;
         }
 

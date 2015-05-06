@@ -26,19 +26,19 @@ public class PartFourMission {
         this.shop=shop;
         this.wig=wig;
 
-        if (d_suit=true){
+        if (d_suit==true){
             modifier+=10;
         }
-        if (boat=true){
+        if (boat==true){
             modifier+=10;
         }
-        if (map=true){
+        if (map==true){
             modifier+=10;
         }
-        if (shop=true){
+        if (shop==true){
             modifier+=10;
         }
-        if (wig=true){
+        if (wig==true){
             modifier+=10;
         }
 
