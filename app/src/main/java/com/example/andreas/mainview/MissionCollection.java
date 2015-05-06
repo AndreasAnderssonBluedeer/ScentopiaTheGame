@@ -23,10 +23,14 @@ public class MissionCollection {
    public MissionCollection(int part,Context context){
        this.context=context;
 
-        p1m = new PartOneMission(context);
-        p2m = new PartTwoMission(context);
-        p3m = new PartThreeMission(context);
-        p4m = new PartFourMission(context);
+        p1m = new PartOneMission(context,Boolean.FALSE,Boolean.FALSE);
+
+        p2m = new PartTwoMission(context,Boolean.FALSE,Boolean.FALSE,Boolean.FALSE);
+
+        p3m = new PartThreeMission(context,Boolean.FALSE,Boolean.FALSE,Boolean.FALSE,Boolean.FALSE);
+
+        p4m = new PartFourMission(
+                context,Boolean.FALSE,Boolean.FALSE,Boolean.FALSE,Boolean.FALSE,Boolean.FALSE);
 
        listAll=new ArrayList<MissionView>();
 
@@ -94,16 +98,5 @@ public class MissionCollection {
         return listAll;
     }
 
-    public void updateModifier(int part){
-        switch (part){
-            case 1: p1m.updateModifier();
-                break;
-            case 2: p2m.updateModifier();
-                break;
-            case 3: p3m.updateModifier();
-                break;
-            case 4: p4m.updateModifier();
-                break;
-        }
-    }
+
 }

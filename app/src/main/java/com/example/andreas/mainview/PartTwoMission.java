@@ -54,8 +54,6 @@ public class PartTwoMission {
     public ArrayList<MissionView> listReturn(){
         return partTwoM;
     }
-    public void updateModifier(){
-        modifier+=5;
-    }
+
 
 }

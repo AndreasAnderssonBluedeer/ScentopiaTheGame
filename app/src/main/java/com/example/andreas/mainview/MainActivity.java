@@ -333,7 +333,7 @@ public class MainActivity extends Activity {
                         gold=save.getGold();
                         txtGold.setText(gold + " G");
 
-                        mc.updateModifier(ic.getItemList().get(i).getPart());
+                        //Uppdatera MissionCollection
 
                         scrollLay.removeAllViews();
                         fillMissionList();

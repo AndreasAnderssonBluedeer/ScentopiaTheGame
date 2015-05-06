@@ -8,10 +8,7 @@ import java.util.ArrayList;
  * Created by Oakstedt on 2015-05-04.
  */
 public class PartThreeMission {
-<<<<<<< HEAD
-=======
 
->>>>>>> bbe8089558bbd8ffbb11fab14a896673377991f4
     private int modifier;
     private Context context;
     private ArrayList<MissionView> partThreeM;
@@ -61,8 +58,6 @@ public class PartThreeMission {
     public ArrayList<MissionView> listReturn(){
         return partThreeM;
     }
-    public void updateModifier(){
-        modifier+=5;
-    }
+
 }
 
