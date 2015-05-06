@@ -23,12 +23,15 @@ import android.widget.SlidingDrawer;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import com.example.andreas.mainview.documents.Save;
 import com.example.andreas.mainview.shroom.ShroomActivity;
 import com.example.andreas.mainview.slashy.SlashyActivity;
 
 
 public class MainActivity extends Activity {
 
+    private Save save;
+    private int part=5;
     private Drawable drawable;
     private RelativeLayout layout;
     private ProgressBar loadProg;
@@ -67,6 +70,18 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        save=new Save(context);
+        gold=save.getGold();
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+           gold+= Integer.parseInt(getIntent().getExtras().get("moneyVar").toString());
+            save.writeGold(this.gold);
+        }
+
+
+
+
 
         layout=(RelativeLayout)findViewById(R.id.layout);
         layout.setBackground(getResources().getDrawable(R.drawable.menu_loadingscreen));
@@ -158,6 +173,9 @@ public class MainActivity extends Activity {
                 menuSlide.setEnabled(Boolean.TRUE);
                 menuSlide.setVisibility(View.VISIBLE);
                 txtGold.setVisibility(View.VISIBLE);
+                gold=save.getGold();
+
+                txtGold.setText(gold+" G");
 
               fillMissionList();
               fillItemsList();
@@ -252,7 +270,7 @@ public class MainActivity extends Activity {
 
 
 
-        mc=new MissionCollection(5,context);
+        mc=new MissionCollection(part,context);
 
         for(int i=0;i<mc.getMissions().size();i++){
             if(i>0){
@@ -309,8 +327,17 @@ public class MainActivity extends Activity {
                 if (!ic.getItemList().get(i).isBought()) {
                     if (ic.getItemList().get(i).getPrice() <= gold) {
                         //Dialog ruta KÖP GENOMFÖRT
+
                         gold = gold - ic.getItemList().get(i).getPrice();
+                        save.writeGold(gold);
+                        gold=save.getGold();
                         txtGold.setText(gold + " G");
+
+                        mc.updateModifier(ic.getItemList().get(i).getPart());
+
+                        scrollLay.removeAllViews();
+                        fillMissionList();
+
                         ic.getItemList().get(i).bought();
                         new AlertDialog.Builder(this)
 
@@ -349,5 +376,6 @@ public class MainActivity extends Activity {
 
                 .show();
     }
+
 
 }

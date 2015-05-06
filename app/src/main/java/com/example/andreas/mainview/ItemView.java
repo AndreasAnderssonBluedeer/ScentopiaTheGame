@@ -100,4 +100,7 @@ public class ItemView extends RelativeLayout {
         own=true;
         cb.toggle();
     }
+    public int getPart(){
+        return part;
+    }
 }

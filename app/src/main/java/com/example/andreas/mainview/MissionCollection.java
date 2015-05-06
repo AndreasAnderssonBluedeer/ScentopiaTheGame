@@ -10,7 +10,7 @@ import java.util.Random;
  * Created by Andreas on 2015-04-29.
  */
 public class MissionCollection {
-   
+
     private int min=0;
     private int max=4;
     private Context context;
@@ -94,5 +94,16 @@ public class MissionCollection {
         return listAll;
     }
 
-
+    public void updateModifier(int part){
+        switch (part){
+            case 1: p1m.updateModifier();
+                break;
+            case 2: p2m.updateModifier();
+                break;
+            case 3: p3m.updateModifier();
+                break;
+            case 4: p4m.updateModifier();
+                break;
+        }
+    }
 }

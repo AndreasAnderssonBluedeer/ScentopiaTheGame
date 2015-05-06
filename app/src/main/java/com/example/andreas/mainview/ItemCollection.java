@@ -54,8 +54,8 @@ public class ItemCollection {
     }
     public void partThree(){
         //Part One Items
-        itemList.add(new ItemView(id++,"Mining Pick",765, 3,Boolean.TRUE,null,context));
-        itemList.add(new ItemView(id++,"Mining Torch",855, 3,Boolean.FALSE,null,context));
+        itemList.add(new ItemView(id++,"Mining Pick",10, 3,Boolean.TRUE,null,context));
+        itemList.add(new ItemView(id++,"Mining Torch",120, 3,Boolean.FALSE,null,context));
     }
     public void partFour(){
         //Part One Items

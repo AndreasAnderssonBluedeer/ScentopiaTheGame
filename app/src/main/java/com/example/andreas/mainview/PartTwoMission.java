@@ -9,6 +9,7 @@ import java.util.ArrayList;
  */
 public class PartTwoMission {
 
+    private int modifier;
     private Context context;
     private ArrayList<MissionView> partTwoM;
 
@@ -34,6 +35,9 @@ public class PartTwoMission {
 
     public ArrayList<MissionView> listReturn(){
         return partTwoM;
+    }
+    public void updateModifier(){
+        modifier+=5;
     }
 
 }

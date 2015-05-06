@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -12,7 +13,9 @@ import android.view.MenuItem;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.andreas.mainview.MainActivity;
 import com.example.andreas.mainview.R;
+import com.example.andreas.mainview.slashy.SlashyActivity;
 
 
 public class ShroomActivity extends Activity {
@@ -21,10 +24,10 @@ public class ShroomActivity extends Activity {
     private int points;
     private GameController controller;
     protected RelativeLayout layout;
-
+    private MainActivity ma=new MainActivity();
     private int count=30;
 
-
+    private MediaPlayer mp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +38,7 @@ public class ShroomActivity extends Activity {
 
 
         controller=new GameController(this,this);   //Finns nog bättre lösning på detta.
-        MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.shroomsong);
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.shroomsong);
         mp.start();
         startGame();
 
@@ -78,14 +81,20 @@ public class ShroomActivity extends Activity {
     }
     public void endGame(){
         Double d=points*1.2;
-        int money=d.intValue();
+        final int money=d.intValue();
         new AlertDialog.Builder(this)                               //Skapar en Dialogruta
                 .setTitle("Game Results:")
                 .setMessage("Points:  "+points+"\n" +
                         "Money Earned:  "+money)
+
                 .setPositiveButton("Okay :)", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                       System.exit(0);
+                        mp.stop();
+                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        i.putExtra("moneyVar", money);
+
+                        startActivity(i);
+
                     }
                 })
 
