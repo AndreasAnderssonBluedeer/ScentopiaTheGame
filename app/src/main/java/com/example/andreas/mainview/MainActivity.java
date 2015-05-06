@@ -177,8 +177,9 @@ public class MainActivity extends Activity {
 
                 txtGold.setText(gold+" G");
 
-              fillMissionList();
-              fillItemsList();
+                fillItemsList();
+                fillMissionList();
+
                 //Kalla på Karta och kontrollera mot sparad fil vilken karta som ska laddas.
 
             }
@@ -270,7 +271,7 @@ public class MainActivity extends Activity {
 
 
 
-        mc=new MissionCollection(part,context);
+        mc=new MissionCollection(part,ic.getItemList(),context);
 
         for(int i=0;i<mc.getMissions().size();i++){
             if(i>0){
@@ -333,13 +334,13 @@ public class MainActivity extends Activity {
                         gold=save.getGold();
                         txtGold.setText(gold + " G");
 
-                        //Uppdatera MissionCollection
-                        //BlaskSMASK
+                        mc=new MissionCollection(5,ic.getItemList(),context);
+
 
                         scrollLay.removeAllViews();
                         fillMissionList();
 
-                        ic.getItemList().get(i).bought();
+                        ic.getItemList().get(i).buy();
                         new AlertDialog.Builder(this)
 
                                 .setMessage(ic.getItemList().get(i).getName() + " is now Yours.")

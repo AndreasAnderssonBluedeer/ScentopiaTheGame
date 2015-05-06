@@ -3,8 +3,9 @@ package com.example.andreas.mainview;
 import android.content.Context;
 import android.view.View;
 import android.widget.Switch;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
+import java.util.ArrayList;
 
 /**
  * Created by Andreas on 2015-04-29.
@@ -19,18 +20,28 @@ public class MissionCollection {
     private PartTwoMission p2m;
     private PartThreeMission p3m;
     private PartFourMission p4m;
+    private HashMap<String,Boolean> booleanList;
+    private ArrayList<ItemView> itemList;
 
-   public MissionCollection(int part,Context context){
+   public MissionCollection(int part,ArrayList<ItemView> itemList,Context context){
        this.context=context;
+        this.itemList=itemList;
 
-        p1m = new PartOneMission(context,Boolean.FALSE,Boolean.FALSE);
+        booleanList=new HashMap<>();
+        fillBooleanMap();
 
-        p2m = new PartTwoMission(context,Boolean.FALSE,Boolean.FALSE,Boolean.FALSE);
+        p1m = new PartOneMission(context,booleanList.get("Mining Pick"),booleanList.get("Torch"));
 
-        p3m = new PartThreeMission(context,Boolean.FALSE,Boolean.FALSE,Boolean.FALSE,Boolean.FALSE);
+        p2m = new PartTwoMission(context,booleanList.get("Sickle"),
+                booleanList.get("Rope"),booleanList.get("Rubber Boots"));
+
+        p3m = new PartThreeMission(context,booleanList.get("Axe"),booleanList.get("Compass")
+        ,booleanList.get("Lumberjacks Permit"),booleanList.get("Horse"));
 
         p4m = new PartFourMission(
-                context,Boolean.FALSE,Boolean.FALSE,Boolean.FALSE,Boolean.FALSE,Boolean.FALSE);
+                context,booleanList.get("Golden Wagon"),booleanList.get("Fancy Clothes")
+        ,booleanList.get("Umbrella of Rainbows"),booleanList.get("The One Legged Parrot"),
+                booleanList.get("Windmill"));
 
        listAll=new ArrayList<MissionView>();
 
@@ -98,5 +109,27 @@ public class MissionCollection {
         return listAll;
     }
 
-
+    public void fillBooleanMap(){
+        int id=0;
+        //Part one Items.
+        booleanList.put("Mining Pick",itemList.get(id).isBought());
+        booleanList.put("Torch",itemList.get(id++).isBought());
+        //Part two Items.
+        booleanList.put("Sickle",itemList.get(id++).isBought());
+        booleanList.put("Rope",itemList.get(id++).isBought());
+        booleanList.put("Rubber Boots",itemList.get(id++).isBought());
+        //Part Three Items.
+        booleanList.put("Axe",itemList.get(id++).isBought());
+        booleanList.put("Compass",itemList.get(id++).isBought());
+        booleanList.put("Lumberjacks Permit",itemList.get(id++).isBought());
+        booleanList.put("Horse",itemList.get(id++).isBought());
+        //Part Four Items.
+        booleanList.put("Golden Wagon",itemList.get(id++).isBought());
+        booleanList.put("Fancy Clothes",itemList.get(id++).isBought());
+        booleanList.put("Umbrella of Rainbows",itemList.get(id++).isBought());
+        booleanList.put("The One Legged Parrot",itemList.get(id++).isBought());
+        booleanList.put("Windmill",itemList.get(id++).isBought());
+        //Part Five Items.
+        booleanList.put("Diving Suit of Honor",itemList.get(id++).isBought());
+    }
 }

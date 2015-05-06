@@ -96,7 +96,7 @@ public class ItemView extends RelativeLayout {
     public String getName(){
         return title;
     }
-    public void bought(){
+    public void buy(){
         own=true;
         cb.toggle();
     }
