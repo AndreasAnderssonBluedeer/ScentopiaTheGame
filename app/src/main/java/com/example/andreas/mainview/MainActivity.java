@@ -334,6 +334,7 @@ public class MainActivity extends Activity {
                         txtGold.setText(gold + " G");
 
                         //Uppdatera MissionCollection
+                        //BlaskSMASK
 
                         scrollLay.removeAllViews();
                         fillMissionList();
