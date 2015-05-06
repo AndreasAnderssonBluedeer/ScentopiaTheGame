@@ -43,29 +43,40 @@ public class ItemCollection {
         }
     }
     public void partOne(){
-        //Part One Items
+        //Part One Items, Mining Pick, Torch.
+
         itemList.add(new ItemView(id++,"Mining Pick",150, 1,Boolean.FALSE,null,context));
-        itemList.add(new ItemView(id++,"Mining Torch",243, 1,Boolean.TRUE,null,context));
+        itemList.add(new ItemView(id++,"Torch",99, 1,Boolean.FALSE,null,context));
     }
     public void partTwo(){
-        //Part One Items
-        itemList.add(new ItemView(id++,"Mining Pick",331, 2,Boolean.TRUE,null,context));
-        itemList.add(new ItemView(id++,"Mining Torch",542, 2,Boolean.TRUE,null,context));
+        //Part Two Items,Sickle, Rope, Rubber Boots.
+
+        itemList.add(new ItemView(id++,"Sickle",191, 2,Boolean.FALSE,null,context));
+        itemList.add(new ItemView(id++,"Rope",150, 2,Boolean.FALSE,null,context));
+        itemList.add(new ItemView(id++,"Rubber Boots",212,2,Boolean.FALSE,null,context));
     }
     public void partThree(){
-        //Part One Items
-        itemList.add(new ItemView(id++,"Mining Pick",10, 3,Boolean.TRUE,null,context));
-        itemList.add(new ItemView(id++,"Mining Torch",120, 3,Boolean.FALSE,null,context));
+        //Part Three Items, Axe,Compass,Lumberjacks Permit, Horse.
+
+        itemList.add(new ItemView(id++,"Axe",400, 3,Boolean.FALSE,null,context));
+        itemList.add(new ItemView(id++,"Compass",180, 3,Boolean.FALSE,null,context));
+        itemList.add(new ItemView(id++,"Lumberjacks Permit",220, 3,Boolean.FALSE,null,context));
+        itemList.add(new ItemView(id++,"Horse",320, 3,Boolean.FALSE,null,context));
+
     }
     public void partFour(){
-        //Part One Items
-        itemList.add(new ItemView(id++,"Mining Pick",422, 4,Boolean.TRUE,null,context));
-        itemList.add(new ItemView(id++,"Mining Torch",443, 4,Boolean.TRUE,null,context));
+        //Part Four Items, Golden Wagon, Fancy Clothes, Umbrella, Parrot, Windmill.
+
+        itemList.add(new ItemView(id++,"Golden Wagon",600, 4,Boolean.FALSE,null,context));
+        itemList.add(new ItemView(id++,"Fancy Clothes",343, 4,Boolean.FALSE,null,context));
+        itemList.add(new ItemView(id++,"Umbrella of Rainbows",500, 4,Boolean.FALSE,null,context));
+        itemList.add(new ItemView(id++,"The One Legged Parrot",300, 4,Boolean.FALSE,null,context));
+        itemList.add(new ItemView(id++,"Windmill",643, 4,Boolean.FALSE,null,context));
     }
     public void partFive(){
-        //Part One Items
-        itemList.add(new ItemView(id++,"Mining Pick",500, 5,Boolean.FALSE,null,context));
-        itemList.add(new ItemView(id++,"Mining Torch",553, 5,Boolean.FALSE,null,context));
+        //Part Five Items, Diving Suit
+        itemList.add(new ItemView(id++,"Diving Suit of Honor",1000, 5,Boolean.FALSE,null,context));
+
     }
     public ArrayList<ItemView> getItemList(){
         return itemList;
