@@ -112,7 +112,7 @@
                     android:layout_below="@+id/btnItem"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:onClick="credits"
+                    android:onClick="quest"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="5dp"
@@ -500,6 +500,83 @@
                                     android:layout_height="fill_parent"
                                     android:id="@+id/relativeLayout2" />
                             </ScrollView>
+                        </RelativeLayout>
+
+                        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/questLayout">
+
+                            <Button
+                                android:layout_width="100dp"
+                                android:layout_height="60dp"
+                                android:text="Unlock Next Part"
+                                android:id="@+id/btnQUnlock"
+                                android:background="#ff190e4d"
+                                android:layout_alignBottom="@+id/questDesc"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginLeft="10dp"
+                                android:textColor="#e1ffffff" />
+
+                            <ImageView
+                                android:layout_width="fill_parent"
+                                android:layout_height="1dp"
+                                android:id="@+id/lineQ1"
+                                android:background="#ff000000"
+                                android:layout_above="@+id/QuestImg"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentEnd="true" />
+
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="HAXI HAXI!jbfodabuibfuidbasuib eifjdsabzuibfduais bfduwiasjzb fuidjbsa uifjbwdszu ifbweusdai bfdsa"
+                                android:id="@+id/questDesc"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_toRightOf="@+id/QuestImg"
+                                android:layout_toEndOf="@+id/QuestImg"
+                                android:background="#84808080"
+                                android:gravity="center_horizontal"
+                                android:layout_below="@+id/titleQuest"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="10dp" />
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="120dp"
+                                android:id="@+id/QuestImg"
+                                android:layout_alignTop="@+id/questDesc"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/slashy_knight_neutral" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Quest"
+                                android:id="@+id/titleQuest"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true" />
+
+                            <ImageView
+                                android:layout_width="fill_parent"
+                                android:layout_height="1dp"
+                                android:id="@+id/lineQ2"
+                                android:background="#ff000000"
+                                android:layout_alignParentBottom="true"
+                                android:layout_below="@+id/questDesc"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="10dp" />
                         </RelativeLayout>
 
                     </ViewFlipper>

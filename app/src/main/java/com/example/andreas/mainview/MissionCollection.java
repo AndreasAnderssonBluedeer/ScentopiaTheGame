@@ -112,7 +112,7 @@ public class MissionCollection {
     public void fillBooleanMap(){
         int id=0;
         //Part one Items.
-        booleanList.put("Mining Pick",itemList.get(id).isBought());
+        booleanList.put("Mining Pick",itemList.get(id++).isBought());
         booleanList.put("Torch",itemList.get(id++).isBought());
         //Part two Items.
         booleanList.put("Sickle",itemList.get(id++).isBought());

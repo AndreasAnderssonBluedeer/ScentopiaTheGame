@@ -22,6 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.SlidingDrawer;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
+import java.util.*;
 
 import com.example.andreas.mainview.documents.Save;
 import com.example.andreas.mainview.shroom.ShroomActivity;
@@ -53,7 +54,7 @@ public class MainActivity extends Activity {
     private RelativeLayout mgLay;
     private RelativeLayout missLay;
     private RelativeLayout itemLay;
-    private RelativeLayout fliplay4;
+    private RelativeLayout questLay;
 
     private RelativeLayout mgShroom;
     private RelativeLayout mgSlashy;
@@ -65,6 +66,7 @@ public class MainActivity extends Activity {
     private Button btnItem;
     private Button btnMG;
     private Button btnMiss;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +103,7 @@ public class MainActivity extends Activity {
         mgLay=(RelativeLayout)findViewById(R.id.minigameLayout);
         missLay=(RelativeLayout)findViewById(R.id.missionLayout);
         itemLay=(RelativeLayout)findViewById(R.id.itemsLayout);
+        questLay=(RelativeLayout)findViewById(R.id.questLayout);
 
         mgShroom=(RelativeLayout)findViewById(R.id.mg1lay);
         mgSlashy=(RelativeLayout)findViewById(R.id.mg2lay);
@@ -177,7 +180,7 @@ public class MainActivity extends Activity {
 
                 txtGold.setText(gold+" G");
 
-                fillItemsList();
+                fillItemsList(save.getItems());
                 fillMissionList();
 
                 //Kalla på Karta och kontrollera mot sparad fil vilken karta som ska laddas.
@@ -235,10 +238,10 @@ public class MainActivity extends Activity {
         button.setBackgroundColor(Color.parseColor("#9e330e80"));
         flip.setDisplayedChild(flip.indexOfChild(itemLay));
     }
-    public void credits(View button){
+    public void quest(View button){
         resetButtoncolor();
         button.setBackgroundColor(Color.parseColor("#9e330e80"));
-      //  flip.setDisplayedChild(flip.indexOfChild(credLay));
+        flip.setDisplayedChild(flip.indexOfChild(questLay));
     }
 
     public void startSlashy(View layout){
@@ -285,11 +288,16 @@ public class MainActivity extends Activity {
             }
         }
     }
-    public void fillItemsList(){
+    public void fillItemsList(ArrayList<String> saveList){
 
-        ic=new ItemCollection(5,context);
+        ic=new ItemCollection(part,context);
 
         for(int i=0;i<ic.getItemList().size();i++){
+            for(int k=0;k<saveList.size();k++){
+                if(ic.getItemList().get(i).getName().equals(saveList.get(k))){
+                    ic.getItemList().get(i).buy();
+                }
+            }
             if(i>0){
                 RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
                         RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
@@ -300,6 +308,7 @@ public class MainActivity extends Activity {
                 itemScroll.addView(ic.getItemList().get(i));
             }
         }
+
     }
 
     public void markItem(View item){
@@ -334,13 +343,16 @@ public class MainActivity extends Activity {
                         gold=save.getGold();
                         txtGold.setText(gold + " G");
 
-                        mc=new MissionCollection(5,ic.getItemList(),context);
+                        ic.getItemList().get(i).buy();
+                        save.writeItem( ic.getItemList().get(i).getName());   //save item to file
+
 
 
                         scrollLay.removeAllViews();
+
                         fillMissionList();
 
-                        ic.getItemList().get(i).buy();
+
                         new AlertDialog.Builder(this)
 
                                 .setMessage(ic.getItemList().get(i).getName() + " is now Yours.")

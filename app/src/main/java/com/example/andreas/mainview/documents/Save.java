@@ -20,11 +20,11 @@ import java.io.*;
 public class Save {
 
     private DataInputStream goldReader;
-    private DataInputStream itemReader;
+    private BufferedReader itemReader;
     private DataInputStream partReader;
 
     private DataOutputStream goldWriter;
-    private DataOutputStream itemWriter;
+    private PrintWriter itemWriter;
     private DataOutputStream partWriter;
     private Context context;
 
@@ -38,28 +38,34 @@ public class Save {
     }
     public void writeItem(String item){ //Kolla så den inte skriver över..
         try {
+           itemWriter =new PrintWriter(new BufferedWriter(new OutputStreamWriter(
+                    context.openFileOutput("itemdoc.txt", Context.MODE_APPEND))));
 
-
-            //Något
+            itemWriter.println(item);
             itemWriter.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     public ArrayList<String> getItems(){
-
-        ArrayList<String> itemlist=new ArrayList<String>();
-
         String item;
+        ArrayList<String> itemlist=new ArrayList<String>();
         try {
+            itemReader = new BufferedReader(new InputStreamReader((
+                    context.openFileInput("itemdoc.txt"))));
+
             item=itemReader.readLine();
-            while(item!=null){
-                itemlist.add(item);
-                item=itemReader.readLine();
-            }
+        while(item!=null){
+            System.out.println(item);
+            itemlist.add(item);
+            item=itemReader.readLine();
+        }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return itemlist;
     }
     public void writePart(int part){    //Dubbelkolla så den skriver över TANKEVERKSTAD!.
