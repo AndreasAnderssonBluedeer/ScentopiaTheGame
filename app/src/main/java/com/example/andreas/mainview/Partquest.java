@@ -95,10 +95,11 @@ public class Partquest {
         if(itemBought==itemcheck.size()&&gold>=goldLimit&&part<5){   // If the number of bought items
                                             // is the same as nbr of items in itemcheck
 
-            part++;
-            save.writePart(part);
-            setQuest(part);
-
+            this.part++;
+            save.writePart(this.part);
+            this.part=save.getPart();
+            setQuest(this.part);
+            //Ny missioncollection och itemlist.
             return true;
         }else {
             return false;
@@ -114,5 +115,8 @@ public class Partquest {
     }
     public int getPart(){
       return  save.getPart();
+    }
+    public int getGoldLimit(){
+        return goldLimit;
     }
 }

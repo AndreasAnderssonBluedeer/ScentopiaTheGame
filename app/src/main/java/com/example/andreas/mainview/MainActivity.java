@@ -32,7 +32,7 @@ import com.example.andreas.mainview.slashy.SlashyActivity;
 public class MainActivity extends Activity {
 
     private Save save;
-    private int part=5;
+
     private Drawable drawable;
     private RelativeLayout layout;
     private ProgressBar loadProg;
@@ -273,10 +273,10 @@ public class MainActivity extends Activity {
     }
 
     public void fillMissionList(){
+        scrollLay.removeAllViews();
 
 
-
-        mc=new MissionCollection(part,ic.getItemList(),context);
+        mc=new MissionCollection(pQ.getPart(),ic.getItemList(),context);
 
         for(int i=0;i<mc.getMissions().size();i++){
             if(i>0){
@@ -291,8 +291,8 @@ public class MainActivity extends Activity {
         }
     }
     public void fillItemsList(ArrayList<String> saveList){
-
-        ic=new ItemCollection(part,context);
+        itemScroll.removeAllViews();
+        ic=new ItemCollection(pQ.getPart(),context);
 
         for(int i=0;i<ic.getItemList().size();i++){
             for(int k=0;k<saveList.size();k++){
@@ -393,9 +393,18 @@ public class MainActivity extends Activity {
                 .show();
     }
     public void unlockPart(View btn){   //Try to unlock next Part.
+       int unlockPrice=pQ.getGoldLimit();
        boolean ul= pQ.unlockPart(ic.getItemList(),gold);
        if(ul){
+           gold = gold - unlockPrice;
+           save.writeGold(gold);
+           gold=save.getGold();
+           txtGold.setText(gold + " G");
+
            dialogBox(pQ.getDialogMsg(ul));
+           fillItemsList(save.getItems());
+           fillMissionList();
+
        }else{
            dialogBox(pQ.getDialogMsg(ul));
        }

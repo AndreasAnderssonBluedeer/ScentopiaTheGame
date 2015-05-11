@@ -73,7 +73,7 @@ public class Save {
             partWriter = new DataOutputStream(
                     context.openFileOutput("partdoc.txt", Context.MODE_PRIVATE));
 
-            partWriter.write(part);
+            partWriter.writeInt(part);
             partWriter.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -84,7 +84,10 @@ public class Save {
         try {
             partReader = new DataInputStream(new DataInputStream(new BufferedInputStream(
                     context.openFileInput("partdoc.txt"))));
-            return partReader.readInt();
+
+            int part=partReader.readInt();
+            System.out.println(part);
+            return part;
         } catch (IOException e) {
             e.printStackTrace();
         }
