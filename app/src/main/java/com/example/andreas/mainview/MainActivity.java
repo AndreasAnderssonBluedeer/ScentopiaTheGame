@@ -67,6 +67,7 @@ public class MainActivity extends Activity {
     private Button btnMG;
     private Button btnMiss;
 
+    private Partquest pQ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +123,7 @@ public class MainActivity extends Activity {
 
         MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.loadingsound);
         mp.start();
+        pQ=new Partquest(this,save);
 
         loading();      //Loading/StartScreen
 
@@ -365,13 +367,13 @@ public class MainActivity extends Activity {
                                 .show();
 
                     }else{
-                        noBuy("Sorry,You need more GOLD.");
+                        dialogBox("Sorry,You need more GOLD.");
                     }
                 }
                     //Uppdatera ItemList,MissionList osv.
                     else {
 
-                        noBuy("You already own this ITEM.");
+                        dialogBox("You already own this ITEM.");
                     }
                 }
 
@@ -379,16 +381,24 @@ public class MainActivity extends Activity {
 
 
         }
-    public void noBuy(String str){
+    public void dialogBox(String str){
         new AlertDialog.Builder(this)
                 .setMessage(str)
-                .setPositiveButton("Okay :(", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
                     }
                 })
 
                 .show();
+    }
+    public void unlockPart(View btn){   //Try to unlock next Part.
+       boolean ul= pQ.unlockPart(ic.getItemList(),gold);
+       if(ul){
+           dialogBox(pQ.getDialogMsg(ul));
+       }else{
+           dialogBox(pQ.getDialogMsg(ul));
+       }
     }
 
 

@@ -84,6 +84,7 @@ public class Save {
         try {
             partReader = new DataInputStream(new DataInputStream(new BufferedInputStream(
                     context.openFileInput("partdoc.txt"))));
+            return partReader.readInt();
         } catch (IOException e) {
             e.printStackTrace();
         }
