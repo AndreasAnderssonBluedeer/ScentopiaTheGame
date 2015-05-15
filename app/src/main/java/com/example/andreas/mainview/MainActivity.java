@@ -358,7 +358,7 @@ public class MainActivity extends Activity {
 
 
                         new AlertDialog.Builder(this)
-
+                                .setCancelable(false)
                                 .setMessage(ic.getItemList().get(i).getName() + " is now Yours.")
                                 .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
@@ -384,15 +384,21 @@ public class MainActivity extends Activity {
 
         }
     public void dialogBox(String str){
+
         new AlertDialog.Builder(this)
+                .setCancelable(false)
+
                 .setMessage(str)
                 .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+
                     public void onClick(DialogInterface dialog, int which) {
 
                     }
                 })
 
                 .show();
+
+
     }
     public void unlockPart(View btn){   //Try to unlock next Part.
        int unlockPrice=pQ.getGoldLimit();

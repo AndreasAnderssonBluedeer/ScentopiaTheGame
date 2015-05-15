@@ -70,6 +70,7 @@ public class ShroomActivity extends Activity {
    //************GUI Metoder****************
     public void startGame(){            //Start spelmetod med dialogruta.
         new AlertDialog.Builder(this)
+                .setCancelable(false)
                 .setMessage("Are You Ready?...")
                 .setPositiveButton("Yes!", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -83,6 +84,7 @@ public class ShroomActivity extends Activity {
         Double d=points*1.2;
         final int money=d.intValue();
         new AlertDialog.Builder(this)                               //Skapar en Dialogruta
+                .setCancelable(false)
                 .setTitle("Game Results:")
                 .setMessage("Points:  "+points+"\n" +
                         "Money Earned:  "+money)

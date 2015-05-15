@@ -106,6 +106,7 @@ public class SlashyActivity extends Activity {
 
     public void start() {   //StartDialog.
         new AlertDialog.Builder(this)
+                .setCancelable(false)
                 .setMessage("Axy TIME?...")
                 .setPositiveButton("Yes!", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -123,6 +124,7 @@ public class SlashyActivity extends Activity {
         Double d =p*0.2;
         final int money=d.intValue();
         new AlertDialog.Builder(this)
+                .setCancelable(false)
                 .setMessage("I'm not angry.. Just DISAPPOINTED!!!\n"+
                 "Points: "+p+
                  "\nMoney: "+money)
