@@ -66,7 +66,7 @@ public class MainActivity extends Activity {
     private Button btnItem;
     private Button btnMG;
     private Button btnMiss;
-
+    private MediaPlayer mp;
     private Partquest pQ;
 
     @Override
@@ -121,7 +121,7 @@ public class MainActivity extends Activity {
         txtGold=(TextView)findViewById(R.id.txtGold);
         txtGold.setVisibility(View.INVISIBLE);
 
-        MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.loadingsound);
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.loadingsound);
         mp.start();
         pQ=new Partquest(this,save);
 
@@ -171,7 +171,7 @@ public class MainActivity extends Activity {
                 map.setVisibility(View.VISIBLE);
                 imgMap=new ImageView(context);
 
-                imgMap.setBackground(getResources().getDrawable(R.drawable.menu_testmap));
+                imgMap.setBackground(pQ.getMap());
                 map.addView(imgMap);
                 map.setBackgroundColor(Color.MAGENTA);
 
@@ -184,7 +184,8 @@ public class MainActivity extends Activity {
 
                 fillItemsList(save.getItems());
                 fillMissionList();
-
+                mp = MediaPlayer.create(getApplicationContext(), R.raw.tripping);
+                mp.start();
                 //Kalla på Karta och kontrollera mot sparad fil vilken karta som ska laddas.
 
             }
@@ -269,6 +270,7 @@ public class MainActivity extends Activity {
           mgMemory.setBackgroundColor(Color.parseColor("#00000000"));
     }
     public void startMinigame(View button){
+        mp.stop();
         startActivity(intent);
     }
 
@@ -404,6 +406,7 @@ public class MainActivity extends Activity {
            dialogBox(pQ.getDialogMsg(ul));
            fillItemsList(save.getItems());
            fillMissionList();
+           imgMap.setBackground(pQ.getMap());
 
        }else{
            dialogBox(pQ.getDialogMsg(ul));

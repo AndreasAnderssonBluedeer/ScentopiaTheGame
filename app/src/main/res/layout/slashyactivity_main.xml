@@ -16,28 +16,30 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Left"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:id="@+id/btnL"
         android:layout_alignTop="@+id/btnR"
         android:layout_alignLeft="@+id/gv"
         android:layout_alignStart="@+id/gv"
-        android:background="#c341b5b5"
+        android:background="@drawable/slashy_axebtnleft2"
         android:textStyle="bold"
-        android:textSize="20dp" />
+        android:textSize="10dp"
+        android:text="LEFT"
+        android:gravity="top|center_horizontal" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Right"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:id="@+id/btnR"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/gv"
-        android:layout_alignEnd="@+id/gv"
-        android:background="#c341b5b5"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        android:background="@drawable/slashy_axebtnright2"
+        android:textSize="10dp"
+        android:textStyle="bold"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="RIGHT"
+        android:gravity="top|center_horizontal" />
 
     <TextView
         android:layout_width="wrap_content"

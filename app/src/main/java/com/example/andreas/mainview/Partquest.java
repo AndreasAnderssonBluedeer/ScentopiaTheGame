@@ -1,6 +1,7 @@
 package com.example.andreas.mainview;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -118,5 +119,25 @@ public class Partquest {
     }
     public int getGoldLimit(){
         return goldLimit;
+    }
+    public Drawable getMap(){
+        Drawable draw;
+        switch (part){
+            case 1: draw=ma.getResources().getDrawable(R.drawable.menu_testmap);
+                break;
+            case 2: draw=ma.getResources().getDrawable(R.drawable.menu_testmap);
+                break;
+            case 3: draw=ma.getResources().getDrawable(R.drawable.menu_testmap);
+                break;
+            case 4: draw=ma.getResources().getDrawable(R.drawable.menu_testmap);
+                break;
+            case 5: draw=ma.getResources().getDrawable(R.drawable.menu_testmap);
+                break;
+
+
+            default: draw=ma.getResources().getDrawable(R.drawable.menu_testmap);
+                break;
+        }
+        return draw;
     }
 }

@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.DisplayMetrics;
@@ -17,6 +19,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.andreas.mainview.MainActivity;
 import com.example.andreas.mainview.R;
 
 import java.util.ArrayList;
@@ -35,6 +38,8 @@ public class SlashyActivity extends Activity {
     private ArrayList <ImageWriterLeft> imgLlist;
     private ArrayList <ImageWriterRight> imgRlist;
     private ImageView hpImg;
+
+    private MediaPlayer mp;
 
     private float speedL=1,speedR=1;
 
@@ -70,6 +75,10 @@ public class SlashyActivity extends Activity {
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
         hpImg.setBackground(getResources().getDrawable(R.drawable.slashy_hitpoints3));
+
+        mp=MediaPlayer.create(getApplicationContext(), R.raw.slashysong);
+        mp.start();
+
         start();
     }
 
@@ -111,15 +120,20 @@ public class SlashyActivity extends Activity {
     }
     public void gameover(){ //The game is over, LOSER!
         play=false;
+        Double d =p*0.2;
+        final int money=d.intValue();
         new AlertDialog.Builder(this)
                 .setMessage("I'm not angry.. Just DISAPPOINTED!!!\n"+
                 "Points: "+p+
-                 "\nMoney: "+p*1.2)
+                 "\nMoney: "+money)
 
                 .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        mp.stop();
+                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        i.putExtra("moneyVar", money);
 
-                        System.exit(0);
+                        startActivity(i);
                     }
                 })
 
@@ -317,7 +331,10 @@ public class SlashyActivity extends Activity {
 
                 Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.slashy_background);
             while(play){
-
+                if(mp.isPlaying()==false){
+                    mp = MediaPlayer.create(getApplicationContext(), R.raw.slashysong);
+                    mp.start();
+                }
                 gv.lock();
 
 
