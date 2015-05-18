@@ -29,9 +29,9 @@ import com.example.andreas.mainview.slashy.SlashyActivity;
 
 
 public class MainActivity extends Activity {
-
+    private Lore lore=new Lore();
     private Save save;
-    private boolean slide=false;
+    private boolean music=true;
 
     private RelativeLayout layout;
     private ProgressBar loadProg;
@@ -54,6 +54,7 @@ public class MainActivity extends Activity {
     private RelativeLayout missLay;
     private RelativeLayout itemLay;
     private RelativeLayout questLay;
+    private RelativeLayout loreLay;
 
     private RelativeLayout mgShroom;
     private RelativeLayout mgSlashy;
@@ -124,6 +125,7 @@ public class MainActivity extends Activity {
         missLay=(RelativeLayout)findViewById(R.id.missionLayout);
         itemLay=(RelativeLayout)findViewById(R.id.itemsLayout);
         questLay=(RelativeLayout)findViewById(R.id.questLayout);
+        loreLay=(RelativeLayout)findViewById(R.id.loreLay);
 
         mgShroom=(RelativeLayout)findViewById(R.id.mg1lay);
         mgSlashy=(RelativeLayout)findViewById(R.id.mg2lay);
@@ -188,11 +190,9 @@ public class MainActivity extends Activity {
                 layout.removeView(loadProg);
                 map.setEnabled(Boolean.TRUE);
                 map.setVisibility(View.VISIBLE);
-                imgMap=new ImageView(context);
 
-                imgMap.setBackground(pQ.getMap());
-                map.addView(imgMap);
-                map.setBackgroundColor(Color.MAGENTA);
+                loreLay.setBackground(pQ.getMap());
+
 
                 menuSlide.setEnabled(Boolean.TRUE);
                 menuSlide.setVisibility(View.VISIBLE);
@@ -290,7 +290,9 @@ public class MainActivity extends Activity {
           mgMemory.setBackgroundColor(Color.parseColor("#00000000"));
     }
     public void startMinigame(View button){
+        music=false;
         mp.stop();
+
         startActivity(intent);
     }
 
@@ -438,8 +440,20 @@ public class MainActivity extends Activity {
            dialogBox(pQ.getDialogMsg(ul),null);
        }
     }
-    public void partBtn1(View btn){
-
+    public void loreBtn1(View btn){
+    dialogBox(lore.getLore1(),"Lore, Part I");
+    }
+    public void loreBtn2(View btn){
+        dialogBox(lore.getLore2(),"Lore, Part II");
+    }
+    public void loreBtn3(View btn){
+        dialogBox(lore.getLore3(),"Lore, Part III");
+    }
+    public void loreBtn4(View btn){
+        dialogBox(lore.getLore4(),"Lore, Part IV");
+    }
+    public void loreBtn5(View btn){
+        dialogBox(lore.getLore5(),"Lore, Part V");
     }
     public void music() {
 
@@ -447,7 +461,7 @@ public class MainActivity extends Activity {
             public void run() {
 
 
-                while (true) {
+                while (music) {
                     if (mp.isPlaying() == false) {
                         mp = MediaPlayer.create(getApplicationContext(), R.raw.tripping);
                         mp.start();
