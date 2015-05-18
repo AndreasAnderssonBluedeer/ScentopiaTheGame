@@ -1,8 +1,6 @@
 package com.example.andreas.mainview;
 
-import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -123,19 +121,19 @@ public class Partquest {
     public Drawable getMap(){
         Drawable draw;
         switch (part){
-            case 1: draw=ma.getResources().getDrawable(R.drawable.menu_testmap);
+            case 1: draw=ma.getResources().getDrawable(R.drawable.menu_backgroundtest);
                 break;
-            case 2: draw=ma.getResources().getDrawable(R.drawable.menu_testmap);
+            case 2: draw=ma.getResources().getDrawable(R.drawable.menu_backgroundtest);
                 break;
-            case 3: draw=ma.getResources().getDrawable(R.drawable.menu_testmap);
+            case 3: draw=ma.getResources().getDrawable(R.drawable.menu_backgroundtest);
                 break;
-            case 4: draw=ma.getResources().getDrawable(R.drawable.menu_testmap);
+            case 4: draw=ma.getResources().getDrawable(R.drawable.menu_backgroundtest);
                 break;
-            case 5: draw=ma.getResources().getDrawable(R.drawable.menu_testmap);
+            case 5: draw=ma.getResources().getDrawable(R.drawable.menu_backgroundtest);
                 break;
 
 
-            default: draw=ma.getResources().getDrawable(R.drawable.menu_testmap);
+            default: draw=ma.getResources().getDrawable(R.drawable.menu_backgroundtest);
                 break;
         }
         return draw;

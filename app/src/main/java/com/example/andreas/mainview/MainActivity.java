@@ -10,7 +10,6 @@ import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,8 +31,8 @@ import com.example.andreas.mainview.slashy.SlashyActivity;
 public class MainActivity extends Activity {
 
     private Save save;
+    private boolean slide=false;
 
-    private Drawable drawable;
     private RelativeLayout layout;
     private ProgressBar loadProg;
     private HorizontalScrollView map;
@@ -68,6 +67,7 @@ public class MainActivity extends Activity {
     private Button btnMiss;
     private MediaPlayer mp;
     private Partquest pQ;
+    private Button handle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,11 +83,11 @@ public class MainActivity extends Activity {
         }
 
 
-
-
-
         layout=(RelativeLayout)findViewById(R.id.layout);
         layout.setBackground(getResources().getDrawable(R.drawable.menu_loadingscreen));
+        handle=(Button)findViewById(R.id.handle);
+
+        handle.setBackground(getResources().getDrawable(R.drawable.menu_arrow_up));
 
         loadProg=(ProgressBar)findViewById(R.id.loadProg);
         loadProg.setMax(100);
@@ -95,6 +95,25 @@ public class MainActivity extends Activity {
         menuSlide=(SlidingDrawer)findViewById(R.id.menuSlide);
         menuSlide.setEnabled(Boolean.FALSE);
         menuSlide.setVisibility(View.INVISIBLE);
+
+        //To change the "Slide Icon" when Menu is Open/Closed.
+
+        menuSlide.setOnDrawerCloseListener(new SlidingDrawer.OnDrawerCloseListener() {
+            @Override
+            public void onDrawerClosed() {
+                handle.setBackground(getResources().getDrawable(R.drawable.menu_arrow_up));
+            }
+        });
+
+
+            menuSlide.setOnDrawerOpenListener(new SlidingDrawer.OnDrawerOpenListener() {
+                @Override
+                public void onDrawerOpened() {
+                    handle.setBackground(getResources().getDrawable(R.drawable.menu_arrow_down));
+                }
+            });
+
+
         flip=(ViewFlipper)findViewById(R.id.flip);
 
         map=(HorizontalScrollView)findViewById(R.id.map);
@@ -186,6 +205,7 @@ public class MainActivity extends Activity {
                 fillMissionList();
                 mp = MediaPlayer.create(getApplicationContext(), R.raw.tripping);
                 mp.start();
+                music();
                 //Kalla på Karta och kontrollera mot sparad fil vilken karta som ska laddas.
 
             }
@@ -369,13 +389,13 @@ public class MainActivity extends Activity {
                                 .show();
 
                     }else{
-                        dialogBox("Sorry,You need more GOLD.");
+                        dialogBox("Sorry,You need more GOLD.",null);
                     }
                 }
                     //Uppdatera ItemList,MissionList osv.
                     else {
 
-                        dialogBox("You already own this ITEM.");
+                        dialogBox("You already own this ITEM.",null);
                     }
                 }
 
@@ -383,12 +403,12 @@ public class MainActivity extends Activity {
 
 
         }
-    public void dialogBox(String str){
+    public void dialogBox(String msg,String title){
 
         new AlertDialog.Builder(this)
                 .setCancelable(false)
-
-                .setMessage(str)
+                .setTitle(title)
+                .setMessage(msg)
                 .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
@@ -409,15 +429,36 @@ public class MainActivity extends Activity {
            gold=save.getGold();
            txtGold.setText(gold + " G");
 
-           dialogBox(pQ.getDialogMsg(ul));
+           dialogBox(pQ.getDialogMsg(ul),null);
            fillItemsList(save.getItems());
            fillMissionList();
            imgMap.setBackground(pQ.getMap());
 
        }else{
-           dialogBox(pQ.getDialogMsg(ul));
+           dialogBox(pQ.getDialogMsg(ul),null);
        }
     }
+    public void partBtn1(View btn){
+
+    }
+    public void music() {
+
+        new Thread() {
+            public void run() {
+
+
+                while (true) {
+                    if (mp.isPlaying() == false) {
+                        mp = MediaPlayer.create(getApplicationContext(), R.raw.tripping);
+                        mp.start();
+                    }
+                }
+
+
+            }
+        }.start();
+    }
+
 
 
 }

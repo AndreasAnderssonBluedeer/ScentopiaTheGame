@@ -606,9 +606,8 @@
 
         <Button
             android:id="@+id/handle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/arrow_up_float"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
 
             />
     </SlidingDrawer>
@@ -622,6 +621,6 @@
         android:gravity="center_vertical|right"
         android:textStyle="bold"
         android:layout_marginLeft="480dp"
-        android:textColor="#d5ffffff" />
+        android:textColor="#c8000000" />
 
 </RelativeLayout>
