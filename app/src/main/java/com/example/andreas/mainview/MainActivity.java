@@ -434,26 +434,36 @@ public class MainActivity extends Activity {
            dialogBox(pQ.getDialogMsg(ul),null);
            fillItemsList(save.getItems());
            fillMissionList();
-           imgMap.setBackground(pQ.getMap());
+           loreLay.setBackground(pQ.getMap());
 
        }else{
            dialogBox(pQ.getDialogMsg(ul),null);
        }
     }
     public void loreBtn1(View btn){
-    dialogBox(lore.getLore1(),"Lore, Part I");
+    if(pQ.getPart()>=1){
+        dialogBox(lore.getLore1(),"Lore, Part I");
+    }
     }
     public void loreBtn2(View btn){
-        dialogBox(lore.getLore2(),"Lore, Part II");
+        if(pQ.getPart()>=2) {
+            dialogBox(lore.getLore2(), "Lore, Part II");
+        }
     }
-    public void loreBtn3(View btn){
-        dialogBox(lore.getLore3(),"Lore, Part III");
+    public void loreBtn3(View btn) {
+        if (pQ.getPart() >= 3) {
+            dialogBox(lore.getLore3(), "Lore, Part III");
+        }
     }
-    public void loreBtn4(View btn){
-        dialogBox(lore.getLore4(),"Lore, Part IV");
+    public void loreBtn4(View btn) {
+        if (pQ.getPart() >= 4) {
+            dialogBox(lore.getLore4(), "Lore, Part IV");
+        }
     }
-    public void loreBtn5(View btn){
-        dialogBox(lore.getLore5(),"Lore, Part V");
+    public void loreBtn5(View btn) {
+        if (pQ.getPart() >= 5) {
+            dialogBox(lore.getLore5(), "Lore, Part V");
+        }
     }
     public void music() {
 

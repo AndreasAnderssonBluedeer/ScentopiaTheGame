@@ -105,6 +105,9 @@ public class Partquest {
         }
     }
     public String getDialogMsg(boolean unlock){
+        if(unlock==false&&getPart()==5){
+            return "You've already unlocked the last part!!!";
+        }
         if(unlock){
             return "Congratulations, You've unlocked part "+part;
         }else{
