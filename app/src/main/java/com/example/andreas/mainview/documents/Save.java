@@ -71,7 +71,7 @@ public class Save {
     public void writePart(int part){    //Dubbelkolla så den skriver över TANKEVERKSTAD!.
         try {
             partWriter = new DataOutputStream(
-                    context.openFileOutput("partdoc.txt", Context.MODE_PRIVATE));
+                    context.openFileOutput("partdoc4.txt", Context.MODE_PRIVATE));
 
             partWriter.writeInt(part);
             partWriter.flush();
@@ -83,7 +83,7 @@ public class Save {
     public int getPart(){
         try {
             partReader = new DataInputStream(new DataInputStream(new BufferedInputStream(
-                    context.openFileInput("partdoc.txt"))));
+                    context.openFileInput("partdoc4.txt"))));
 
             int part=partReader.readInt();
             System.out.println(part);

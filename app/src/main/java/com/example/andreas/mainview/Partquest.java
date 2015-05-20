@@ -124,19 +124,19 @@ public class Partquest {
     public Drawable getMap(){
         Drawable draw;
         switch (part){
-            case 1: draw=ma.getResources().getDrawable(R.drawable.menu_backgroundtest);
+            case 1: draw=ma.getResources().getDrawable(R.drawable.menu_map1);
                 break;
-            case 2: draw=ma.getResources().getDrawable(R.drawable.menu_backgroundtest);
+            case 2: draw=ma.getResources().getDrawable(R.drawable.menu_map2);
                 break;
-            case 3: draw=ma.getResources().getDrawable(R.drawable.menu_backgroundtest);
+            case 3: draw=ma.getResources().getDrawable(R.drawable.menu_map3);
                 break;
-            case 4: draw=ma.getResources().getDrawable(R.drawable.menu_backgroundtest);
+            case 4: draw=ma.getResources().getDrawable(R.drawable.menu_map4);
                 break;
-            case 5: draw=ma.getResources().getDrawable(R.drawable.menu_backgroundtest);
+            case 5: draw=ma.getResources().getDrawable(R.drawable.menu_map5);
                 break;
 
 
-            default: draw=ma.getResources().getDrawable(R.drawable.menu_backgroundtest);
+            default: draw=ma.getResources().getDrawable(R.drawable.menu_map1);
                 break;
         }
         return draw;
