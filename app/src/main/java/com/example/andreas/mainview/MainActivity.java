@@ -31,6 +31,7 @@ import com.example.andreas.mainview.slashy.SlashyActivity;
 public class MainActivity extends Activity {
     private Lore lore=new Lore();
     private Save save;
+    private  MissionLogic ml=new MissionLogic();
     private boolean music=true;
 
     private RelativeLayout layout;
@@ -233,9 +234,20 @@ public class MainActivity extends Activity {
     public void startMission(View btn){
         for(int i=0;i<mc.getMissions().size();i++){
           if(mc.getMissions().get(i).isMarked()){
-                //MissionLogic.start(mc.getMissions().get(i).getProbability();
+
+                int missiongold=ml.doMission(mc.getMissions().get(i).getProbability(),
+                         mc.getMissions().get(i).getGold());
+
+                dialogBox(ml.getDialog(),null);
+
+              gold = gold +missiongold;
+              save.writeGold(gold);
+              gold=save.getGold();
+              txtGold.setText(gold + " G");
+
             }
         }
+
     }
 
 
