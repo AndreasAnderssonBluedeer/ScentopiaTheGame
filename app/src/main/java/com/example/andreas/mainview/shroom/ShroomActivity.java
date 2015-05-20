@@ -24,20 +24,21 @@ public class ShroomActivity extends Activity {
     private int points;
     private GameController controller;
     protected RelativeLayout layout;
-    private MainActivity ma=new MainActivity();
-    private int count=30;
+    private MainActivity ma = new MainActivity();
+    private int count = 30;
 
     private MediaPlayer mp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shroomactivity_main);
-        lblPoints=(TextView)findViewById(R.id.lblPoints);
-        lblTime=(TextView)findViewById(R.id.lblTime);
-        layout=(RelativeLayout)findViewById(R.id.layout);
+        lblPoints = (TextView) findViewById(R.id.lblPoints);
+        lblTime = (TextView) findViewById(R.id.lblTime);
+        layout = (RelativeLayout) findViewById(R.id.layout);
 
 
-        controller=new GameController(this,this);   //Finns nog bättre lösning på detta.
+        controller = new GameController(this, this);   //Finns nog bättre lösning på detta.
         mp = MediaPlayer.create(getApplicationContext(), R.raw.shroomsong);
         mp.start();
         startGame();
@@ -67,27 +68,28 @@ public class ShroomActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-   //************GUI Metoder****************
-    public void startGame(){            //Start spelmetod med dialogruta.
+    //************GUI Metoder****************
+    public void startGame() {            //Start spelmetod med dialogruta.
         new AlertDialog.Builder(this)
                 .setCancelable(false)
                 .setMessage("Are You Ready?...")
                 .setPositiveButton("Yes!", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                      countdown();
+                        countdown();
                     }
                 })
 
                 .show();
     }
-    public void endGame(){
-        Double d=points*1.2;
-        final int money=d.intValue();
+
+    public void endGame() {
+        Double d = points * 1.2;
+        final int money = d.intValue();
         new AlertDialog.Builder(this)                               //Skapar en Dialogruta
                 .setCancelable(false)
                 .setTitle("Game Results:")
-                .setMessage("Points:  "+points+"\n" +
-                        "Money Earned:  "+money)
+                .setMessage("Points:  " + points + "\n" +
+                        "Money Earned:  " + money)
 
                 .setPositiveButton("Okay :)", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -103,10 +105,13 @@ public class ShroomActivity extends Activity {
                 .show();
     }
 
-    public void addPoints(){        //Uppdatera poängen.
-    points+=10;
-    lblPoints.setText(""+points);
+    public void addPoints() {        //Uppdatera poängen.
+        new Blopsound().start();
+
+        points += 10;
+        lblPoints.setText("" + points);
     }
+
     public void countdown() {            //Räkna ner tiden.
         new CountDownTimer(30000, 1000) {
 
@@ -120,7 +125,6 @@ public class ShroomActivity extends Activity {
                 controller.addObject();
 
 
-
             }
 
             public void onFinish() {
@@ -129,7 +133,22 @@ public class ShroomActivity extends Activity {
             }
         }.start();
     }
+
+    private class Blopsound extends Thread {
+        public void run() {
+            MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.shroom_blop);
+            mp.start();
+            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                public void onCompletion(MediaPlayer mp) {
+                    mp.release();
+
+                }
+
+                ;
+            });
+        }
     }
+}
 
 
 

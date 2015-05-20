@@ -277,6 +277,16 @@ public class SlashyActivity extends Activity {
 
         }
         public void addPoints(){        //Addpoints when an enemy is killed.
+            MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.slashy_scream);
+            mp.start();
+            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                public void onCompletion(MediaPlayer mp) {
+                    mp.release();
+
+                }
+
+                ;
+            });
             runOnUiThread(new Runnable() {
 
                 @Override
@@ -366,6 +376,17 @@ public class SlashyActivity extends Activity {
         @Override
         public void onClick(View v) {
 
+            MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.slashy_swing);
+            mp.start();
+            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                public void onCompletion(MediaPlayer mp) {
+                    mp.release();
+
+                }
+
+                ;
+            });
+
             new CountDownTimer(400, 50) {
                 @Override
                 public void onTick(long millisUntilFinished) {
@@ -388,6 +409,17 @@ public class SlashyActivity extends Activity {
 
         @Override
         public void onClick(View v) {
+
+            MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.slashy_swing);
+            mp.start();
+            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                public void onCompletion(MediaPlayer mp) {
+                    mp.release();
+
+                }
+
+                ;
+            });
 
             new CountDownTimer(400, 50) {
                 @Override
