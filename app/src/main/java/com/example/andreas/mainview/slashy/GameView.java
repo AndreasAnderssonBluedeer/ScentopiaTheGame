@@ -49,7 +49,7 @@ import com.example.andreas.mainview.R;
         protected void onDraw(Canvas canvas) {
 
             canvas.drawBitmap(BitmapFactory.decodeResource(getResources()
-                    , R.drawable.slashy_background),0,0,null);
+                    , R.drawable.slashy_background2),0,0,null);
 
         }
 

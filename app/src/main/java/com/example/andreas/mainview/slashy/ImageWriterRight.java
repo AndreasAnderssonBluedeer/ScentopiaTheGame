@@ -2,6 +2,8 @@ package com.example.andreas.mainview.slashy;
 
 import android.graphics.Bitmap;
 
+import java.util.Random;
+
 /**
  * Created by Andreas on 2015-04-10.
  */
@@ -17,9 +19,11 @@ public class ImageWriterRight {
         this.bmp3=bmp3;
         x=width-100*density;
         this.density=density;
+        setStartPosition();
     }
-    public void setStartPosition(int x){
-        this.x=x;
+    public void setStartPosition(){
+        Random rand=new Random();
+        x=x+rand.nextInt(200);
     }
     public float getPosition(){
         return x;

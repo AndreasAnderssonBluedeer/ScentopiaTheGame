@@ -1,7 +1,7 @@
 package com.example.andreas.mainview.slashy;
 
 import android.graphics.Bitmap;
-
+import java.util.*;
 /**
  * Created by Andreas on 2015-04-10.
  */
@@ -16,9 +16,11 @@ public class ImageWriterLeft {
         this.bmp2=bmp2;
         this.bmp3=bmp3;
         this.density=density;
+        setStartPosition();
     }
-    public void setStartPosition(int x){
-        this.x=x;
+    public void setStartPosition(){
+        Random rand=new Random();
+        x=rand.nextInt(200)-200;
     }
     public void setSpeed(float speed){
         this.speed=speed;

@@ -39,7 +39,7 @@ public class SlashyActivity extends Activity {
     private ArrayList <ImageWriterRight> imgRlist;
     private ImageView hpImg;
 
-    private MediaPlayer mp;
+    private MediaPlayer mp,mpDmg;
 
     private float speedL=1,speedR=1;
 
@@ -202,7 +202,7 @@ public class SlashyActivity extends Activity {
                  if ((attack>190* density) && (attack<250* density)) {    //Limit the attack to one side
 
                     life++;
-
+                    dmgSound();
                     imgLlist.remove(imgLlist.get(i));
                     newLeft();
                 }
@@ -217,7 +217,7 @@ public class SlashyActivity extends Activity {
                                  &&(attack>250* density)) {
 
                      life++;
-
+                    dmgSound();
                     imgRlist.remove(imgRlist.get(i));
                     newRight();
                 }
@@ -231,16 +231,35 @@ public class SlashyActivity extends Activity {
                           break;
 
                 case 1:   hpImg.setBackground(getResources().getDrawable(R.drawable.slashy_hitpoints2));
+
                           break; //You've taken one hit.
 
                 case 2:   hpImg.setBackground(getResources().getDrawable(R.drawable.slashy_hitpoints1));
+
                           break; //You've taken two hits.
 
                 case 3:   gameover();
+
                           break;
             }
                 }
             });
+        }
+
+        public void dmgSound(){
+
+            mpDmg = MediaPlayer.create(getApplicationContext(), R.raw.slashy_dmg);
+            mpDmg.start();
+            mpDmg.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                public void onCompletion(MediaPlayer mpDmg) {
+                    mpDmg.release();
+
+                }
+
+                ;
+            });
+
+
         }
 
 
@@ -277,11 +296,11 @@ public class SlashyActivity extends Activity {
 
         }
         public void addPoints(){        //Addpoints when an enemy is killed.
-            MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.slashy_scream);
-            mp.start();
-            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                public void onCompletion(MediaPlayer mp) {
-                    mp.release();
+            MediaPlayer mpP = MediaPlayer.create(getApplicationContext(), R.raw.slashy_scream);
+            mpP.start();
+            mpP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                public void onCompletion(MediaPlayer mpP) {
+                    mpP.release();
 
                 }
 
@@ -341,7 +360,7 @@ public class SlashyActivity extends Activity {
             }
             public void run(){
 
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.slashy_background);
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.slashy_background2);
             while(play){
                 if(mp.isPlaying()==false){
                     mp = MediaPlayer.create(getApplicationContext(), R.raw.slashysong);
@@ -376,11 +395,11 @@ public class SlashyActivity extends Activity {
         @Override
         public void onClick(View v) {
 
-            MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.slashy_swing);
-            mp.start();
-            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                public void onCompletion(MediaPlayer mp) {
-                    mp.release();
+            MediaPlayer mpL = MediaPlayer.create(getApplicationContext(), R.raw.slashy_swing);
+            mpL.start();
+            mpL.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                public void onCompletion(MediaPlayer mpL) {
+                    mpL.release();
 
                 }
 
@@ -410,11 +429,11 @@ public class SlashyActivity extends Activity {
         @Override
         public void onClick(View v) {
 
-            MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.slashy_swing);
-            mp.start();
-            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                public void onCompletion(MediaPlayer mp) {
-                    mp.release();
+            MediaPlayer mpR = MediaPlayer.create(getApplicationContext(), R.raw.slashy_swing);
+            mpR.start();
+            mpR.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                public void onCompletion(MediaPlayer mpR) {
+                    mpR.release();
 
                 }
 
