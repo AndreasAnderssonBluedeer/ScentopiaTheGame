@@ -75,7 +75,7 @@ public class Save {
 
         try {
             partWriter = new DataOutputStream(
-                    context.openFileOutput("partdoc4.txt", Context.MODE_PRIVATE));
+                    context.openFileOutput("partdoc6.txt", Context.MODE_PRIVATE));
 
             partWriter.writeInt(part);
             partWriter.flush();
@@ -87,7 +87,7 @@ public class Save {
     public int getPart(){   //Reads part from part-document and return.
         try {
             partReader = new DataInputStream(new DataInputStream(new BufferedInputStream(
-                    context.openFileInput("partdoc4.txt"))));
+                    context.openFileInput("partdoc6.txt"))));
 
             int part=partReader.readInt();
             System.out.println(part);

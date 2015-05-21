@@ -121,7 +121,8 @@ public class Partquest {
             return "You've already unlocked the last part!!!";
         }
         if(unlock){
-            return "Congratulations, You've unlocked part "+part+1;
+
+            return "Congratulations, You've unlocked part "+part;
         }else{
             return "Sorry, You're missing Gold and/or Items to unlock part "+part+".";
         }
