@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Andreas.
- * Activity class for a minigame. The games purpose is to kill monsters attacking your knight.
+ * Activity class for a minigamesTab. The games purpose is to kill monsters attacking your knight.
  * communicates with Gameview,ImagewriterLeft,ImageWriterRight and Level.
  * When the game has ended, it sends "Won gold" to Mainactivity.
  */

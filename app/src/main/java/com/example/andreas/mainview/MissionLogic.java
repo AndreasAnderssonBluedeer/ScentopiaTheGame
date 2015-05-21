@@ -4,12 +4,13 @@ import java.util.Random;
 
 /**
  * Created by david_000 on 2015-05-19.
+ * Missionlogic to determine if a mission is successful or not.
  */
 public class MissionLogic {
 	
     private Double outcome;
     
-    public String getDialog(){
+    public String getDialog(){     //Returns a string with mission outcome and +/- gold.
         if (outcome < 0){
             return "Mission Failed\n"+outcome.intValue()+" Gold.";
         }
@@ -18,9 +19,8 @@ public class MissionLogic {
         }
     }
 
-
-    public int doMission(int chance, Integer reward){
-    	outcome=0.0;
+    public int doMission(int chance, Integer reward){ //Mission logic.
+    	outcome=0.0;                // higher chance= higher probability to succeed.
         Random rand = new Random();
             int roll = rand.nextInt(101);
             if (chance < roll) {
@@ -28,9 +28,8 @@ public class MissionLogic {
             }
             if(chance >= roll & chance != 0){
                 outcome = reward.doubleValue();
-
         }
         return outcome.intValue();
     }
-  
+
 }

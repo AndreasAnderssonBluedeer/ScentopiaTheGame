@@ -16,27 +16,26 @@ import java.util.ArrayList;
 import java.io.*;
 /**
  * Created by Andreas on 2015-05-05.
+ * This Class Save the users Gold,unlocked part and bought itemsTab. Used for both Read and Write
+ * from Document.
  */
 public class Save {
-
+    //Reader variables.
     private DataInputStream goldReader;
     private BufferedReader itemReader;
     private DataInputStream partReader;
-
+    //Writer variables
     private DataOutputStream goldWriter;
     private PrintWriter itemWriter;
     private DataOutputStream partWriter;
+
     private Context context;
 
-
     public Save(Context context){
-
         this.context=context;
-
-
-
     }
-    public void writeItem(String item){ //Kolla så den inte skriver över..
+
+    public void writeItem(String item){ //Write Item to item-document. Appends.
         try {
            itemWriter =new PrintWriter(new BufferedWriter(new OutputStreamWriter(
                     context.openFileOutput("itemdoc.txt", Context.MODE_APPEND))));
@@ -47,15 +46,18 @@ public class Save {
             e.printStackTrace();
         }
     }
-    public ArrayList<String> getItems(){
+
+    public ArrayList<String> getItems(){    //Read all itemsTab from item-document and return as array.
         String item;
+
         ArrayList<String> itemlist=new ArrayList<String>();
         try {
             itemReader = new BufferedReader(new InputStreamReader((
                     context.openFileInput("itemdoc.txt"))));
 
             item=itemReader.readLine();
-        while(item!=null){
+
+        while(item!=null){      //While there is itemsTab saved to the document.
             System.out.println(item);
             itemlist.add(item);
             item=itemReader.readLine();
@@ -68,7 +70,9 @@ public class Save {
 
         return itemlist;
     }
-    public void writePart(int part){    //Dubbelkolla så den skriver över TANKEVERKSTAD!.
+
+    public void writePart(int part){    //Write unlocked part to Part-document. Overwrites saved part.
+
         try {
             partWriter = new DataOutputStream(
                     context.openFileOutput("partdoc4.txt", Context.MODE_PRIVATE));
@@ -78,9 +82,9 @@ public class Save {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-    public int getPart(){
+
+    public int getPart(){   //Reads part from part-document and return.
         try {
             partReader = new DataInputStream(new DataInputStream(new BufferedInputStream(
                     context.openFileInput("partdoc4.txt"))));
@@ -94,7 +98,7 @@ public class Save {
         return 1; //if the document is empty it is part 1.
     }
 
-    public void writeGold(int gold){    //Update Document with current amount of gold. .
+    public void writeGold(int gold){    //Update Document with current amount of gold. Overwrites.
         try {
             goldWriter = new DataOutputStream(
                     context.openFileOutput("golddoc.txt", Context.MODE_PRIVATE));
@@ -103,9 +107,9 @@ public class Save {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-    public int getGold(){       //Get the saved amount gold.
+
+    public int getGold(){       //reads and returns the saved amount gold.
         try {
 
             goldReader = new DataInputStream(new DataInputStream(new BufferedInputStream(
@@ -117,6 +121,5 @@ public class Save {
             e.printStackTrace();
             return 0;           //if the document is empty.
         }
-
     }
 }

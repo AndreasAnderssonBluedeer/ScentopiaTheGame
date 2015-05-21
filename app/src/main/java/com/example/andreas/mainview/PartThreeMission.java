@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Oakstedt on 2015-05-04.
+ * Missions for part 3. Booleans in constructor affects mission-probability if true.
  */
 public class PartThreeMission {
 
@@ -38,6 +39,8 @@ public class PartThreeMission {
         }
 
         partThreeM=new ArrayList<MissionView>();
+
+        //Add missionsTab to list.
         partThreeM.add(new MissionView(31, "BEwARe", 50+modifier, 400,
                 "Get me some salmon from the falls, watch out for wildlife will you?", context));
 
@@ -55,7 +58,7 @@ public class PartThreeMission {
 
     }
 
-    public ArrayList<MissionView> listReturn(){
+    public ArrayList<MissionView> listReturn(){ //return list.
         return partThreeM;
     }
 

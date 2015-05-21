@@ -9,6 +9,7 @@ import com.example.andreas.mainview.documents.Save;
 import java.util.*;
 /**
  * Created by Andreas on 2015-05-08.
+ * A class to set Quest information in menu-tab "Quest".
  */
 public class Partquest {
 
@@ -25,23 +26,27 @@ public class Partquest {
         this.save=save;
         this.part=save.getPart();
         this.ma=ma;
-
+        //Fetch Imageview and Label.
         img=(ImageView)ma.findViewById(R.id.questImg);
         txtQuest=(TextView)ma.findViewById(R.id.questTxt);
 
         setQuest(part);
     }
-    public void setQuest(int part){
-        itemcheck=new ArrayList<String>();
-        switch (part){
+
+    public void setQuest(int part){     //Set resources and data for current questTab.
+
+        itemcheck=new ArrayList<String>();  //List of which itemsTab is needed to unlock questTab.
+
+        switch (part){  //Part=questTab. part 1= case/questTab 1 and so on.
+
             case 1:
                 goldLimit=1000;
                 itemcheck.add(("Mining Pick"));
                 itemcheck.add("Torch");
                 txtQuest.setText("Part 1, Mines and stuff"+goldLimit);
                 img.setBackground(ma.getResources().getDrawable(R.drawable.shroom_shroom));
-
                 break;
+
             case 2:
                 goldLimit=2000;
                 itemcheck.add("Sickle");
@@ -50,6 +55,7 @@ public class Partquest {
                 txtQuest.setText("Part 2, Bruther Snurfish, crazyness"+goldLimit);
                 img.setBackground(ma.getResources().getDrawable(R.drawable.slashy_monster_left1));
                 break;
+
             case 3:
                 goldLimit=3000;
                 itemcheck.add("Axe");
@@ -59,6 +65,7 @@ public class Partquest {
                 txtQuest.setText("Part 3, Getting high"+goldLimit);
                 img.setBackground(ma.getResources().getDrawable(R.drawable.slashy_hitpoints1));
                 break;
+
             case 4:
                 goldLimit=4000;
                 itemcheck.add("Golden Wagon");
@@ -69,59 +76,66 @@ public class Partquest {
                 txtQuest.setText("Part 4, its getting serious!"+goldLimit);
                 img.setBackground(ma.getResources().getDrawable(R.drawable.slashy_knight_leftfull));
                 break;
+
             case 5:
                 goldLimit=5000;
                 itemcheck.add("Diving Suit of Honor");
                 txtQuest.setText("Part 5,WIHOOOOO"+goldLimit);
                 img.setBackground(ma.getResources().getDrawable(R.drawable.slashy_knight_righthalf));
                 break;
-
         }
     }
+
     public boolean unlockPart(ArrayList<ItemView> itemlist,int gold){
+        //Control if everything needed to unlock is ok, if true-unlock.
+
         int itemBought=0;
+
         for(int i=0;i<itemcheck.size();i++){
             for(int k=0;k<itemlist.size();k++){
-                System.out.println(itemlist.get(k).getName());
+
                 if(itemcheck.get(i).equals(itemlist.get(k).getName())&&
                         itemlist.get(k).isBought()){    //If its the same name and it's bought,add to itembought.
+
                     itemBought++;
-                    System.out.println(itemcheck.get(i)+","+itemlist.get(k).getName()+","+itemBought
-                    +","+itemcheck.size()+","+gold+","+goldLimit+","+itemlist.size());
                 }
             }
         }
-        if(itemBought==itemcheck.size()&&gold>=goldLimit&&part<5){   // If the number of bought items
-                                            // is the same as nbr of items in itemcheck
+        if(itemBought==itemcheck.size()&&gold>=goldLimit&&part<5){   // If the number of bought itemsTab
+                                            // is the same as nbr of itemsTab in itemcheck
 
             this.part++;
-            save.writePart(this.part);
+            save.writePart(this.part);  //Save the new unlocked part.
             this.part=save.getPart();
-            setQuest(this.part);
-            //Ny missioncollection och itemlist.
+            setQuest(this.part);        //set next questTab.
+
             return true;
         }else {
             return false;
         }
     }
-    public String getDialogMsg(boolean unlock){
+
+    public String getDialogMsg(boolean unlock){ //return Quest-result String.
+
         if(unlock==false&&getPart()==5){
             return "You've already unlocked the last part!!!";
         }
         if(unlock){
-            return "Congratulations, You've unlocked part "+part;
+            return "Congratulations, You've unlocked part "+part+1;
         }else{
             return "Sorry, You're missing Gold and/or Items to unlock part "+part+".";
         }
-
     }
-    public int getPart(){
+
+    public int getPart(){       //Get current part.
       return  save.getPart();
     }
-    public int getGoldLimit(){
+
+    public int getGoldLimit(){  //Return goldlimit for questTab-unlock.
         return goldLimit;
     }
-    public Drawable getMap(){
+
+    public Drawable getMap(){   //Return map for each part.
         Drawable draw;
         switch (part){
             case 1: draw=ma.getResources().getDrawable(R.drawable.menu_map1);

@@ -10,21 +10,20 @@ import android.widget.TextView;
 import com.example.andreas.mainview.R;
 
 /**
- * A Class with a defined Layout for every Mission.
+ * A Class with a defined Layout for each Mission.
  * Created by Andreas on 2015-04-29.
  */
 public class MissionView extends RelativeLayout {
 
     private int id, probability, gold;
     private String title, items;
-    private View mission;
-    private RelativeLayout layout;
-    private Context context;
-
     private boolean marked = false;
 
+    private View mission;
+    private RelativeLayout layout;
     private TextView titleTxt, probsTxt, goldTxt, itemsTxt;
 
+    private Context context;
 
     public MissionView(int id, String title, int probability, int gold, String items, Context context) {
         super(context);
@@ -40,34 +39,34 @@ public class MissionView extends RelativeLayout {
         setInfo();
     }
 
-    public void setInfo() {
+    public void setInfo() {     //Give all components text/data.
         //Fetch the MissionLayout.
         LayoutInflater factory = LayoutInflater.from(context);
         mission = factory.inflate(R.layout.mission_view, null);
-
+        //Fetch layout and give ID.
         layout = (RelativeLayout) mission.findViewById(R.id.missionView);
         layout.setId(id);
-
+        //Fetch Labels.
         titleTxt = (TextView) mission.findViewById(R.id.missionTitle);
         probsTxt = (TextView) mission.findViewById(R.id.probability);
         goldTxt = (TextView) mission.findViewById(R.id.gold);
         itemsTxt = (TextView) mission.findViewById(R.id.items);
-
+        //Set texts.
         titleTxt.setText(title);
         probsTxt.setText(probability + "%");
         goldTxt.setText(gold + " G");
         itemsTxt.setText(items);
-
+        //Add this view to the class-object.
         this.addView(mission);
     }
 
-    public int getId() {
+    public int getId() {    //Return ID.
         return this.id;
     }
-    public int getProbability(){
+    public int getProbability(){    //return Mission Probability
         return this.probability;
     }
-    public int getGold(){
+    public int getGold(){   //return MissionGold.
         return gold;
     }
     public void mark() { //Marks the view when you select it.
