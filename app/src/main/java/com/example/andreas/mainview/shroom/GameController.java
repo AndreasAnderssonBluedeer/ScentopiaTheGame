@@ -12,11 +12,12 @@ import java.util.Random;
 
 /**
  * Created by Andreas on 2015-03-24.
+ * A GameController class. Communicates between the UI and Imagebutton object+ adds new Imagebuttons.
  */
 public class GameController {
+
     private WindowManager wm;
     private Display display;
-    
 
     private Drawable drawable;
     private Context context;
@@ -25,36 +26,30 @@ public class GameController {
     private Random randW = new Random();
     private Random randH = new Random();
 
-
-    public GameController(ShroomActivity shroomAct, Context context) {     //Behöver Context till ObjectIcon
-        //Kommunicerar med GUI i MainActivity
-
+    public GameController(ShroomActivity shroomAct, Context context) {
 
         this.shroomAct = shroomAct;
         this.context = context;
         this.drawable = context.getResources().getDrawable(R.drawable.shroom_shroom);
         wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
 
-        display = wm.getDefaultDisplay();                            //Hämta Displayen för att få dess storlek senare
+        display = wm.getDefaultDisplay();            //get display.
     }
 
-    public void addObject() {        //Lägg till svamp på skärmen. slumpa en position på skärmen.
+    public void addObject() {        //Add an ObjectIcon to the screen.
 
       ObjectIcon  btn= new ObjectIcon(context, this, drawable);
 
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(100, 140);
 
-        params.leftMargin = 100 + randW.nextInt(display.getWidth() - 300); //SlumpPosition
+        params.leftMargin = 100 + randW.nextInt(display.getWidth() - 300);  //Get a random position.
         params.topMargin = 150 + randH.nextInt(display.getHeight() - 600);
 
-        shroomAct.layout.addView(btn, params); //Lägg till knapp o dess position till "panelen"
-
-
-
+        shroomAct.layout.addView(btn, params); //Add the button with specific position.
 
     }
 
-    public class Remove implements Runnable{
+    public class Remove implements Runnable{    //Runnable to remove Button without delay.
         private ObjectIcon btn;
         public Remove(ObjectIcon btn){
             this.btn=btn;
@@ -65,15 +60,12 @@ public class GameController {
         }
     }
 
-    public void removeObject(ObjectIcon btn) {  //Ta emot id för iconobjektet i listan och radera.
+    public void removeObject(ObjectIcon btn) {  //Remove the Button.
 
         shroomAct.runOnUiThread(new Remove(btn));
-
-
-
     }
 
-    public void addPoints() {    //Uppdatera poängen
+    public void addPoints() {    //Update score
         shroomAct.addPoints();
 
     }

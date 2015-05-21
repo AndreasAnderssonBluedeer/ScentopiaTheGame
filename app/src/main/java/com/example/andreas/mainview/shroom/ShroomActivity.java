@@ -17,30 +17,39 @@ import com.example.andreas.mainview.MainActivity;
 import com.example.andreas.mainview.R;
 import com.example.andreas.mainview.slashy.SlashyActivity;
 
+/**
+ * Created by Andreas.
+ * Activity class with UI for "Picking Mushrooms Minigame."
+ * Basically a countdowntimer and score. Communicates with Gamecontroller and sends
+ * "won gold" to Mainactivity.
+ */
 
 public class ShroomActivity extends Activity {
+
     private TextView lblPoints;
     protected TextView lblTime;
     private int points;
     private GameController controller;
     protected RelativeLayout layout;
-    private MainActivity ma = new MainActivity();
-    private int count = 30;
-
     private MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shroomactivity_main);
+
+        //Labels for Score and Countdown
         lblPoints = (TextView) findViewById(R.id.lblPoints);
         lblTime = (TextView) findViewById(R.id.lblTime);
+        //Background/Layout
         layout = (RelativeLayout) findViewById(R.id.layout);
 
 
-        controller = new GameController(this, this);   //Finns nog bättre lösning på detta.
+        controller = new GameController(this, this);
+        //Background Music
         mp = MediaPlayer.create(getApplicationContext(), R.raw.shroomsong);
         mp.start();
+
         startGame();
 
     }
@@ -68,24 +77,24 @@ public class ShroomActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    //************GUI Metoder****************
-    public void startGame() {            //Start spelmetod med dialogruta.
+    //*****************************GUI Methods*********************************
+
+    public void startGame() {            //StartDialog, Are you ready?!
         new AlertDialog.Builder(this)
                 .setCancelable(false)
                 .setMessage("Are You Ready?...")
                 .setPositiveButton("Yes!", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+
                         countdown();
                     }
-                })
-
-                .show();
+                }).show();
     }
 
-    public void endGame() {
+    public void endGame() {         //EndDialog-Game results.
         Double d = points * 1.2;
         final int money = d.intValue();
-        new AlertDialog.Builder(this)                               //Skapar en Dialogruta
+        new AlertDialog.Builder(this)
                 .setCancelable(false)
                 .setTitle("Game Results:")
                 .setMessage("Points:  " + points + "\n" +
@@ -94,28 +103,27 @@ public class ShroomActivity extends Activity {
                 .setPositiveButton("Okay :)", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         mp.stop();
+                        //Change activity to "Menu-activity" and bring the won gold.
                         Intent i = new Intent(getApplicationContext(), MainActivity.class);
                         i.putExtra("moneyVar", money);
 
                         startActivity(i);
-
                     }
-                })
-
-                .show();
+                }) .show();
     }
 
-    public void addPoints() {        //Uppdatera poängen.
-        new Blopsound().start();
+    public void addPoints() {        //Update Score+Label.
+
+        new Blopsound().start();    //calls the "picked mushroom sound"
 
         points += 10;
         lblPoints.setText("" + points);
     }
 
-    public void countdown() {            //Räkna ner tiden.
+    public void countdown() {            //Countdown from 30 seconds.
         new CountDownTimer(30000, 1000) {
 
-            public void onTick(long millisUntilFinished) {
+            public void onTick(long millisUntilFinished) {  //Add mushrooms every second.
                 lblTime.setText("" + millisUntilFinished / 1000);
                 controller.addObject();
                 controller.addObject();
@@ -124,17 +132,16 @@ public class ShroomActivity extends Activity {
                 controller.addObject();
                 controller.addObject();
 
-
             }
 
-            public void onFinish() {
+            public void onFinish() {        //On finish, Call Endgame.
                 lblTime.setText("0");
                 endGame();
             }
         }.start();
     }
 
-    private class Blopsound extends Thread {
+    private class Blopsound extends Thread {        // Plays "Picked mushroom sound"
         public void run() {
             MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.shroom_blop);
             mp.start();
@@ -142,9 +149,7 @@ public class ShroomActivity extends Activity {
                 public void onCompletion(MediaPlayer mp) {
                     mp.release();
 
-                }
-
-                ;
+                };
             });
         }
     }
