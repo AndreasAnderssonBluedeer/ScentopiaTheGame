@@ -82,9 +82,16 @@ public class ItemCollection {
         itemList.add(new ItemView(id++,"Windmill",643, 4,Boolean.FALSE,null,context));
     }
     public void partFive(){
-        //Part Five Items, Diving Suit
+        //Part Five Items, Diving Suit,The Red Ship,Shark Harpoon, Treasure Map, Perfume Shop,Court Wig.
+
         itemList.add(new ItemView(id++,"Diving Suit of Honor",1000, 5,Boolean.FALSE,null,context));
 
+        itemList.add(new ItemView(id++,"The Red Ship",1800, 5,Boolean.FALSE,null,context));
+        itemList.add(new ItemView(id++,"Shark Harpoon",800, 5,Boolean.FALSE,null,context));
+        itemList.add(new ItemView(id++,"Treasure Map",80, 5,Boolean.FALSE,null,context));
+
+        itemList.add(new ItemView(id++,"Perfume Shop",1500, 5,Boolean.FALSE,null,context));
+        itemList.add(new ItemView(id++,"Court Wig",200, 5,Boolean.FALSE,null,context));
     }
     public ArrayList<ItemView> getItemList(){
         return itemList;

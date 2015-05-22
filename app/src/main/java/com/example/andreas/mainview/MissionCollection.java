@@ -190,7 +190,15 @@ public class MissionCollection {
     }
 
     public void booleanList5(){
-        //Part Five Items.
+        //Part Five Items.Diving Suit,The Red Ship,Shark Harpoon, Treasure Map, Perfume Shop,Court Wig.
         booleanList.put("Diving Suit of Honor",itemList.get(id++).isBought());
+
+        booleanList.put("The Red Ship",itemList.get(id++).isBought());
+        booleanList.put("Shark Harpoon",itemList.get(id++).isBought());
+        booleanList.put("Treasure Map",itemList.get(id++).isBought());
+        booleanList.put("Perfume Shop",itemList.get(id++).isBought());
+        booleanList.put("Court Wig",itemList.get(id++).isBought());
+
+
     }
 }

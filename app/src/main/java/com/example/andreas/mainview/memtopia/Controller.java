@@ -34,7 +34,7 @@ public class Controller {
                     array.get(1).locked(true);
                     array.clear();
                     gameFinished += 1;
-                    if(gameFinished == 6){
+                    if(gameFinished == 6 ){
                         memActivity.dialogBox("Your final score is: " + String.valueOf(counter),
                                 "Congratulations!\n+"+String.valueOf(counter)+" Gold.");
                     }
@@ -43,6 +43,10 @@ public class Controller {
                 }
                 else if(!array.get(0).getName().equals(array.get(1).getName())){
                     counter = counter - 10;
+                    if(counter==0){
+                        memActivity.dialogBox("Your final score is: " + String.valueOf(counter),
+                                "Sorry!\n+"+String.valueOf(counter)+" Gold.");
+                    }
                     memActivity.changePoints(counter);
                     new CountDownTimer(2000, 2000) {
                         @Override

@@ -91,6 +91,13 @@ public class Partquest {
             case 5:
                 goldLimit=5000;
                 itemcheck.add("Diving Suit of Honor");
+
+                itemcheck.add("Shark Harpoon");
+                itemcheck.add("The Red Ship");
+                itemcheck.add("Treasure Map");
+                itemcheck.add("Perfume Shop");
+                itemcheck.add("Court Wig");
+
                 txtQuest.setText("Nose Guard Davis: I am the watcher of the fourth wall! Audience with the Queen? Ha! You need a Purple Crystal Vial" +
                         " in which to present your gift. To get that you need loads of things to get to the bottom of the bay. Also a " +
                         "court wig since that is all the rage, a shop here in the city so you atleast seem legitimate. Bribe me after that " +
