@@ -9,6 +9,7 @@ import com.example.andreas.mainview.documents.Save;
 import java.util.*;
 /**
  * Created by Andreas on 2015-05-08.
+ * Added content by Oak 2015-05-15
  * A class to set Quest information in menu-tab "Quest".
  */
 public class Partquest {
@@ -43,8 +44,11 @@ public class Partquest {
                 goldLimit=1000;
                 itemcheck.add(("Mining Pick"));
                 itemcheck.add("Torch");
-                txtQuest.setText("Part 1, Mines and stuff"+goldLimit);
-                img.setBackground(ma.getResources().getDrawable(R.drawable.shroom_shroom));
+                txtQuest.setText("Big Beard: Hi there! So you want to make a perfume to impress the Queen?" +
+                        " Well, I have some diamond sweat you can buy. But you need to prove your worth" +
+                        " first! Earn your mining equipment first, earn the cash and come talk again. Off to" +
+                        " work with ye!"+goldLimit);
+                img.setBackground(ma.getResources().getDrawable(R.drawable.quest_bigbeard));
                 break;
 
             case 2:
@@ -52,8 +56,11 @@ public class Partquest {
                 itemcheck.add("Sickle");
                 itemcheck.add("Rope");
                 itemcheck.add("Rubber Boots");
-                txtQuest.setText("Part 2, Bruther Snurfish, crazyness"+goldLimit);
-                img.setBackground(ma.getResources().getDrawable(R.drawable.slashy_monster_left1));
+                txtQuest.setText("Brother Snurf: Greetings, I know of a plant you need for your quest!" +
+                        " It's called a Thunder Plant and you can find it high in the mountains, with me help" +
+                        " of course. You need some supplies so get them and a fee for me, your humble servant and guide." +
+                        " How much? Oh, just a small sum."+goldLimit);
+                img.setBackground(ma.getResources().getDrawable(R.drawable.quest_brothers));
                 break;
 
             case 3:
@@ -62,8 +69,10 @@ public class Partquest {
                 itemcheck.add("Compass");
                 itemcheck.add("Lumberjacks Permit");
                 itemcheck.add("Horse");
-                txtQuest.setText("Part 3, Getting high"+goldLimit);
-                img.setBackground(ma.getResources().getDrawable(R.drawable.slashy_hitpoints1));
+                txtQuest.setText("Mega Mustasch: Oh! Oh, hello! You want some of my jointed petals huh? DO NOT DENY IT!" +
+                        " My brother Big Beard told me all about your quest, yes yes... Well! You need some things to " +
+                        "get ready and a finders fee for me of course then off we go, yes yes. Let's get cracking!"+goldLimit);
+                img.setBackground(ma.getResources().getDrawable(R.drawable.quest_megam));
                 break;
 
             case 4:
@@ -73,15 +82,25 @@ public class Partquest {
                 itemcheck.add("Umbrella of Rainbows");
                 itemcheck.add("The One Legged Parrot");
                 itemcheck.add("Windmill");
-                txtQuest.setText("Part 4, its getting serious!"+goldLimit);
-                img.setBackground(ma.getResources().getDrawable(R.drawable.slashy_knight_leftfull));
+                txtQuest.setText("Red Eric: Ahoy! No, you don't need to see my face. We shall keep the fourth wall intact." +
+                        " To get into Went you need to have plenty of things to seem wealthy, what things? Just look at the list! I am also " +
+                        "greedy so some gold for me, if you please."+goldLimit);
+                img.setBackground(ma.getResources().getDrawable(R.drawable.quest_rede));
                 break;
 
             case 5:
                 goldLimit=5000;
                 itemcheck.add("Diving Suit of Honor");
-                txtQuest.setText("Part 5,WIHOOOOO"+goldLimit);
-                img.setBackground(ma.getResources().getDrawable(R.drawable.slashy_knight_righthalf));
+                txtQuest.setText("Nose Guard Davis: I am the watcher of the fourth wall! Audience with the Queen? Ha! You need a Purple Crystal Vial" +
+                        " in which to present your gift. To get that you need loads of things to get to the bottom of the bay. Also a " +
+                        "court wig since that is all the rage, a shop here in the city so you atleast seem legitimate. Bribe me after that " +
+                        " and I will let you in. Of course I need a bribe, have you seen this helmet!?"+goldLimit);
+                img.setBackground(ma.getResources().getDrawable(R.drawable.quest_noseg));
+                break;
+            case 6:
+                txtQuest.setText("What is this? A perfume consisting of th greatest things from all of Scentopia? My goodness! " +
+                        "...it's awful! Vile even! But... You got this far and I am a just and now smelly queen! You, have won the game.");
+                img.setBackground(ma.getResources().getDrawable(R.drawable.quest_queens));
                 break;
         }
     }
