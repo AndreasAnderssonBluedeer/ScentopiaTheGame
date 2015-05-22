@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Andreas.
- * Activity class for a minigamesTab. The games purpose is to kill monsters attacking your knight.
+ * Activity class for a minigame called slashy. The games purpose is to kill monsters attacking your knight.
  * communicates with Gameview,ImagewriterLeft,ImageWriterRight and Level.
  * When the game has ended, it sends "Won gold" to Mainactivity.
  */
@@ -298,7 +298,7 @@ public class SlashyActivity extends Activity {
 
     public void addPoints(){        //Addpoints when an enemy is killed.
             //Play a sound effect for "Killed monster"
-            MediaPlayer mpP = MediaPlayer.create(getApplicationContext(), R.raw.slashy_scream);
+            MediaPlayer mpP = MediaPlayer.create(getApplicationContext(), R.raw.slashy_monster);
             mpP.start();
             mpP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 public void onCompletion(MediaPlayer mpP) {
