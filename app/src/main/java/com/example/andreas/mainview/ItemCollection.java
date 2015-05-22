@@ -40,6 +40,14 @@ public class ItemCollection {
                 partFour();
                 partFive();
                 break;
+
+            case 6: partOne();
+                partTwo();
+                partThree();
+                partFour();
+                partFive();
+                break;
+
         }
     }
     public void partOne(){

@@ -35,7 +35,7 @@ public class Lore {
                 " probably plunder loads if you befriend him, what will your choice be... Matey?";
     }
     public String getLore5(){    //return Lore 5
-        return "Went is the great capitol of Scentopia, with a great castle surrounded by the rest of the city, resting majestically in the calm waters " +
+        return "Went is the great capitol of Scentopia, with a great memtopia_castle surrounded by the rest of the city, resting majestically in the calm waters " +
                 "of Purple Water Bay. The water is actually purple, some say it is because of the crystals in the bottom of the bay. But noone is mad enough " +
                 "to dive down there and have a look, right?";
     }

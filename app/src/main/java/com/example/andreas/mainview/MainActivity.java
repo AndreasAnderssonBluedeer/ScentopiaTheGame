@@ -22,6 +22,7 @@ import android.widget.ViewFlipper;
 import java.util.*;
 
 import com.example.andreas.mainview.documents.Save;
+import com.example.andreas.mainview.memtopia.MemActivity;
 import com.example.andreas.mainview.shroom.ShroomActivity;
 import com.example.andreas.mainview.slashy.SlashyActivity;
 
@@ -285,7 +286,7 @@ public class MainActivity extends Activity {
 
     public void startMemory(View layout){   //Highlight Memory in MinigameTab.
         unMarkGames();
-        //intent = new Intent(context, MemoryActivity.class);
+        intent = new Intent(context, MemActivity.class);
         mgMemory.setBackgroundColor(Color.parseColor("#b5aaaaaa"));
     }
 

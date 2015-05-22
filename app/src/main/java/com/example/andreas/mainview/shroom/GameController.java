@@ -43,7 +43,7 @@ public class GameController {
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(100, 140);
 
         params.leftMargin = 100 + randW.nextInt(display.getWidth() - 300);  //Get a random position.
-        params.topMargin = 150 + randH.nextInt(display.getHeight() - 600);
+        params.topMargin = 150 + randH.nextInt(display.getHeight() - 400);
 
         shroomAct.layout.addView(btn, params); //Add the button with specific position.
 

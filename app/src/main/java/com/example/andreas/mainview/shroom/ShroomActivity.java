@@ -114,7 +114,7 @@ public class ShroomActivity extends Activity {
 
     public void addPoints() {        //Update Score+Label.
 
-        new Blopsound().start();    //calls the "picked mushroom sound"
+        new Blopsound().start();    //calls the "picked memtopia_mushroom sound"
 
         points += 10;
         lblPoints.setText("" + points);

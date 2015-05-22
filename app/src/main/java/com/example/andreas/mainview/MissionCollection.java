@@ -59,6 +59,12 @@ public class MissionCollection {
                    partThree();
                    partFour();
               break;
+           case 6:
+               partOne();
+               partTwo();
+               partThree();
+               partFour();
+               break;
        }
    }
 
@@ -119,6 +125,13 @@ public class MissionCollection {
                booleanList4();
                break;
            case 5:
+               booleanList1();
+               booleanList2();
+               booleanList3();
+               booleanList4();
+               booleanList5();
+               break;
+           case 6:
                booleanList1();
                booleanList2();
                booleanList3();

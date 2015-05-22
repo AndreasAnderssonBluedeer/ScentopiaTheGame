@@ -30,6 +30,11 @@
             android:screenOrientation="landscape"
             android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
+        <activity android:name=
+            "com.example.andreas.mainview.memtopia.MemActivity"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+        </activity>
     </application>
 
 </manifest>

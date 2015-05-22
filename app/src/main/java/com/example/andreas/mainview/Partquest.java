@@ -120,7 +120,7 @@ public class Partquest {
                 }
             }
         }
-        if(itemBought==itemcheck.size()&&gold>=goldLimit&&part<5){   // If the number of bought itemsTab
+        if(itemBought==itemcheck.size()&&gold>=goldLimit&&part<6){   // If the number of bought itemsTab
                                             // is the same as nbr of itemsTab in itemcheck
 
             this.part++;
@@ -136,13 +136,16 @@ public class Partquest {
 
     public String getDialogMsg(boolean unlock){ //return Quest-result String.
 
-        if(unlock==false&&getPart()==5){
+        if(unlock==false&&getPart()==6){
             return "You've already unlocked the last part!!!";
         }
+        if(unlock&&getPart()==6){
+            return "Congratulations, You've now presented your gift to the queen and won the game!";
+        }
         if(unlock){
-
             return "Congratulations, You've unlocked part "+part;
-        }else{
+        }
+        else{
             return "Sorry, You're missing Gold and/or Items to unlock part "+part+".";
         }
     }
@@ -168,7 +171,8 @@ public class Partquest {
                 break;
             case 5: draw=ma.getResources().getDrawable(R.drawable.menu_map5);
                 break;
-
+            case 6: draw=ma.getResources().getDrawable(R.drawable.menu_map5);
+                break;
 
             default: draw=ma.getResources().getDrawable(R.drawable.menu_map1);
                 break;
