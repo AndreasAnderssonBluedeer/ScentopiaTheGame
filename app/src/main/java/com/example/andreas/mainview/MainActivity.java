@@ -27,6 +27,7 @@ import com.example.andreas.mainview.slashy.SlashyActivity;
 
 /**
  * Created by Andreas.
+ * Meddled with by Oak
  * Activity class with Map/Menu for the entire Game. Lore, Mission-tab, Minigame-tab,
  * Item-tab and Quest-tab. Communicates with Save,MissionCollection,PartQuest,Lore,
  * ItemCollection, SlashyActivity and ShroomActivity.
@@ -439,31 +440,31 @@ public class MainActivity extends Activity {
 
     public void loreBtn1(View btn){ //Show Lore 1
     if(pQ.getPart()>=1){
-        dialogBox(lore.getLore1(),"Lore, Part I");
+        dialogBox(lore.getLore1(),"Plain Plains");
     }
     }
 
     public void loreBtn2(View btn){  //Show Lore 2
         if(pQ.getPart()>=2) {
-            dialogBox(lore.getLore2(), "Lore, Part II");
+            dialogBox(lore.getLore2(), "Eastern Hills");
         }
     }
 
     public void loreBtn3(View btn) {     //Show Lore 3
         if (pQ.getPart() >= 3) {
-            dialogBox(lore.getLore3(), "Lore, Part III");
+            dialogBox(lore.getLore3(), "Wood Forest");
         }
     }
 
     public void loreBtn4(View btn) {     //Show Lore 4
         if (pQ.getPart() >= 4) {
-            dialogBox(lore.getLore4(), "Lore, Part IV");
+            dialogBox(lore.getLore4(), "Golden Plains & Salty Sea");
         }
     }
 
     public void loreBtn5(View btn) {     //Show Lore 5
         if (pQ.getPart() >= 5) {
-            dialogBox(lore.getLore5(), "Lore, Part V");
+            dialogBox(lore.getLore5(), "Went");
         }
     }
 
