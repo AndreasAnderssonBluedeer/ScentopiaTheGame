@@ -13,33 +13,33 @@ public class PartFourMission {
     private int modifier;
     private Context context;
     private ArrayList<MissionView> partFourM;
-    private boolean d_suit;
-    private boolean boat;
-    private boolean map;
-    private boolean shop;
-    private boolean wig;
+    private boolean g_wagon;
+    private boolean f_clothes;
+    private boolean umbrella;
+    private boolean parrot;
+    private boolean windmill;
 
-    public PartFourMission(Context context, boolean d_suit, boolean boat, boolean map, boolean shop, boolean wig){
+    public PartFourMission(Context context, boolean g_wagon, boolean f_clothes, boolean umbrella, boolean parrot, boolean windmill){
         this.context=context;
-        this.d_suit=d_suit;
-        this.boat=boat;
-        this.map=map;
-        this.shop=shop;
-        this.wig=wig;
+        this.g_wagon = g_wagon;
+        this.f_clothes = f_clothes;
+        this.umbrella = umbrella;
+        this.parrot = parrot;
+        this.windmill = windmill;
 
-        if (d_suit==true){
+        if (g_wagon ==true){
             modifier+=10;
         }
-        if (boat==true){
+        if (f_clothes ==true){
             modifier+=10;
         }
-        if (map==true){
+        if (umbrella ==true){
             modifier+=10;
         }
-        if (shop==true){
+        if (parrot ==true){
             modifier+=10;
         }
-        if (wig==true){
+        if (windmill ==true){
             modifier+=10;
         }
 
@@ -67,4 +67,3 @@ public class PartFourMission {
         return partFourM;
     }
 }
-
