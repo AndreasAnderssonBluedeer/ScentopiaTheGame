@@ -140,6 +140,9 @@ public class ShroomActivity extends Activity {
             }
         }.start();
     }
+    @Override
+    public void onBackPressed() {       //To prevent unintended "QUIT"
+    }
 
     private class Blopsound extends Thread {        // Plays "Picked mushroom sound"
         public void run() {

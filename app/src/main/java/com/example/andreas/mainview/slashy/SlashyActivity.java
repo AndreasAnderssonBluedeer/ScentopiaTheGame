@@ -344,7 +344,8 @@ public class SlashyActivity extends Activity {
                         screenH);
             }
         }
-
+    public void onBackPressed() {       //To prevent unintended "QUIT"
+    }
     //************************** GraphicsThread *****************************
 
     private class AttackerThread extends Thread{

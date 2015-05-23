@@ -297,11 +297,14 @@ public class MainActivity extends Activity {
           mgMemory.setBackgroundColor(Color.parseColor("#00000000"));
     }
 
-    public void startMinigame(View button){ //Start highlighted/Selected Minigame in MinigameTab.
-                                            // Changes Activity.
-        music=false;
-        mp.stop();
-        startActivity(intent);
+    public void startMinigame(View button) { //Start highlighted/Selected Minigame in MinigameTab.
+        // Changes Activity.
+
+        if (intent != null) {
+            music = false;
+            mp.stop();
+            startActivity(intent);
+        }
     }
 
     public void fillMissionList(){  //Fill Missions-scrollView with Missions in MissionsTab.
@@ -467,6 +470,10 @@ public class MainActivity extends Activity {
         if (pQ.getPart() >= 5) {
             dialogBox(lore.getLore5(), "Went");
         }
+    }
+
+    @Override
+    public void onBackPressed() {       //To prevent unintended "QUIT"
     }
 
     public void music() {   //Controls background music.

@@ -22,6 +22,7 @@ public class MissionCollection {
     private PartTwoMission p2m;
     private PartThreeMission p3m;
     private PartFourMission p4m;
+    private PartFiveMission p5m;
     private HashMap<String,Boolean> booleanList;
     private ArrayList<ItemView> itemList;
 
@@ -58,12 +59,14 @@ public class MissionCollection {
                    partTwo();
                    partThree();
                    partFour();
+                   partFive();
               break;
            case 6:
                partOne();
                partTwo();
                partThree();
                partFour();
+               partFive();
                break;
        }
    }
@@ -96,6 +99,12 @@ public class MissionCollection {
         Random rand4 = new Random();
         int randomNum4 = rand4.nextInt((max - min) + 1) + min;
         listAll.add(p4m.listReturn().get(randomNum4));
+    }
+    public synchronized void partFive(){
+        //Part Five Missions
+        Random rand5 = new Random();
+        int randomNum5 = rand5.nextInt((max - min) + 1) + min;
+        listAll.add(p5m.listReturn().get(randomNum5));
     }
 
     public ArrayList<MissionView> getMissions(){ //Return missionlist.
@@ -199,6 +208,9 @@ public class MissionCollection {
         booleanList.put("Perfume Shop",itemList.get(id++).isBought());
         booleanList.put("Court Wig",itemList.get(id++).isBought());
 
-
+        p5m = new PartFiveMission(
+                context,booleanList.get("Diving Suit of Honor"),booleanList.get("The Red Ship")
+                ,booleanList.get("Shark Harpoon"),booleanList.get("Treasure Map"),
+                booleanList.get("Perfume Shop"),booleanList.get("Court Wig"));
     }
 }

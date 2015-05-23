@@ -171,5 +171,7 @@ public class MemActivity extends Activity {
             }
         }.start();
     }
+    public void onBackPressed() {       //To prevent unintended "QUIT"
+    }
 
 }

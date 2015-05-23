@@ -18,29 +18,34 @@ public class PartFiveMission {
     private boolean map;
     private boolean shop;
     private boolean wig;
+    private boolean harpoon;
 
-    public PartFiveMission(Context context, boolean d_suit, boolean boat, boolean map, boolean shop, boolean wig){
+    public PartFiveMission(Context context, boolean d_suit, boolean boat, boolean map, boolean shop,boolean harpoon, boolean wig){
         this.context=context;
         this.d_suit=d_suit;
         this.boat=boat;
         this.map=map;
         this.shop=shop;
+        this.harpoon=harpoon;
         this.wig=wig;
 
         if (d_suit==true){
-            modifier+=40;
+            modifier+=5;
         }
         if (boat==true){
-            modifier+=40;
+            modifier+=5;
         }
         if (map==true){
-            modifier+=40;
+            modifier+=5;
         }
         if (shop==true){
-            modifier+=40;
+            modifier+=5;
+        }
+        if (harpoon==true){
+            modifier+=5;
         }
         if (wig==true){
-            modifier+=40;
+            modifier+=5;
         }
 
         partFiveM =new ArrayList<MissionView>();
