@@ -92,7 +92,7 @@ public class ShroomActivity extends Activity {
     }
 
     public void endGame() {         //EndDialog-Game results.
-        Double d = points * 1.2;
+        Double d = points * 0.2;
         final int money = d.intValue();
         new AlertDialog.Builder(this)
                 .setCancelable(false)

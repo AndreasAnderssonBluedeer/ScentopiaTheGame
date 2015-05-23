@@ -51,19 +51,19 @@ public class PartFiveMission {
         partFiveM =new ArrayList<MissionView>();
 
         //Add missionsTab to list.
-        partFiveM.add(new MissionView(46, "Color me none!", 30 + modifier, 1000,
+        partFiveM.add(new MissionView(46, "Color me none!", 10 + modifier, 1000,
                 "Go to the water plant and help remove color from the water, who wants to drink purple?", context));
 
-        partFiveM.add(new MissionView(47, "Shopping spree.", 30 + modifier, 750,
+        partFiveM.add(new MissionView(47, "Shopping spree.", 10 + modifier, 750,
                 "You there! Carry my bags in the market!", context));
 
-        partFiveM.add(new MissionView(48, "Biggest fan!", 30 + modifier, 800,
+        partFiveM.add(new MissionView(48, "Biggest fan!", 10 + modifier, 800,
                 "Keep the nobles cool with this, I need a break. They tip well!", context));
 
-        partFiveM.add(new MissionView(49, "New Watch", 30 + modifier, 750,
+        partFiveM.add(new MissionView(49, "New Watch", 10 + modifier, 750,
                 "Fill in for Nose Guard Davis, he needs a break.", context));
 
-        partFiveM.add(new MissionView(40, "Old friends", 20 + modifier, 1500,
+        partFiveM.add(new MissionView(40, "Old friends", 10 + modifier, 1500,
                 "It's me Red Eric, let me into the city gates, just one night. I'll cut you in... (HIGH RISK)", context));
 
     }

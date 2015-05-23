@@ -28,37 +28,37 @@ public class PartFourMission {
         this.windmill = windmill;
 
         if (g_wagon ==true){
-            modifier+=10;
+            modifier+=5;
         }
         if (f_clothes ==true){
-            modifier+=10;
+            modifier+=5;
         }
         if (umbrella ==true){
-            modifier+=10;
+            modifier+=5;
         }
         if (parrot ==true){
-            modifier+=10;
+            modifier+=5;
         }
         if (windmill ==true){
-            modifier+=10;
+            modifier+=5;
         }
 
         partFourM=new ArrayList<MissionView>();
 
         //Add missionsTab to list.
-        partFourM.add(new MissionView(41, "Tax this!", 40+modifier, 500,
+        partFourM.add(new MissionView(41, "Tax this!", 15+modifier, 500,
                 "The tax collector now have ships! Blow one up.", context));
 
-        partFourM.add(new MissionView(42, "Smelly tidings", 40+modifier, 375,
+        partFourM.add(new MissionView(42, "Smelly tidings", 15+modifier, 375,
                 "Loads of rotten weed on the shores, clean up sailor!", context));
 
-        partFourM.add(new MissionView(43, "Who can sail without wind?", 40+modifier, 400,
+        partFourM.add(new MissionView(43, "Who can sail without wind?", 15+modifier, 400,
                 "Who can row without oars? Not us, hop to it!", context));
 
-        partFourM.add(new MissionView(44, "Golden Fair", 40+modifier, 375,
+        partFourM.add(new MissionView(44, "Golden Fair", 15+modifier, 375,
                 "Heard about the fair? They give away coins to everyone. Except crooks, please go there for me.", context));
 
-        partFourM.add(new MissionView(45, "Then again...", 25+modifier, 700,
+        partFourM.add(new MissionView(45, "Then again...", 15+modifier, 700,
                 "WE could steal loads of gold. Join us in a raid! (HIGH RISK)", context));
 
     }

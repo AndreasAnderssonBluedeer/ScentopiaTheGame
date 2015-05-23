@@ -36,19 +36,19 @@ public class PartTwoMission {
         partTwoM=new ArrayList<MissionView>();
 
         //Add missionsTab to list.
-        partTwoM.add(new MissionView(21, "Fungus Funk", 60+modifier, 300,
+        partTwoM.add(new MissionView(21, "Fungus Funk", 25+modifier, 300,
                 "Brother Snurf loves shrooms so much he wants to sing you a song, his friends will pay you to listen. (So they don't have to.", context));
 
-        partTwoM.add(new MissionView(22, "Shroom Broom!", 60+modifier, 175,
+        partTwoM.add(new MissionView(22, "Shroom Broom!", 25+modifier, 175,
                 "So. Many. Mushrooms! You need to clean out so you can get more!", context));
 
-        partTwoM.add(new MissionView(23, "Over the hills and kinda close", 60+modifier, 200,
+        partTwoM.add(new MissionView(23, "Over the hills and kinda close", 25+modifier, 200,
                 "Over that hill there is some treasure, or was it the next one?", context));
 
-        partTwoM.add(new MissionView(24, "The roof, the roof, the roof has gone missing!", 60+modifier, 175,
+        partTwoM.add(new MissionView(24, "The roof, the roof, the roof has gone missing!", 25+modifier, 175,
                 "Shroomhouse lost the roof in the strong winds, catch it before it rolls away into the woods!", context));
 
-        partTwoM.add(new MissionView(25, "Find him a shrubbery", 60+modifier, 250,
+        partTwoM.add(new MissionView(25, "Find him a shrubbery", 25+modifier, 250,
                 "How about getting a decoration for the garden? Like a shrubbery, IT would be nice.", context));
 
     }
